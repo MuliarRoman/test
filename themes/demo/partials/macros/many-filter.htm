@@ -1,0 +1,8 @@
+{% macro updateMany(array, newSlug) %}
+{% if newSlug not in array %}
+{% set array = array|merge([newSlug]) %}
+{% else %}
+{% set array = array|filter(item => item != newSlug) %}
+{% endif %}
+{{ array|json_encode }}
+{% endmacro %}

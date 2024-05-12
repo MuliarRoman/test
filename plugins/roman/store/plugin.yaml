@@ -1,0 +1,24 @@
+plugin:
+    name: 'roman.store::lang.plugin.name'
+    description: 'roman.store::lang.plugin.description'
+    author: Roman
+    icon: oc-icon-database
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Store
+        url: /
+        icon: icon-database
+        sideMenu:
+            side-menu-item:
+                label: Categories
+                url: roman/store/categories
+                icon: icon-sitemap
+            side-menu-item2:
+                label: Sizes
+                url: roman/store/sizes
+                icon: icon-sitemap
+            side-menu-item3:
+                label: Products
+                url: roman/store/products
+                icon: icon-sitemap

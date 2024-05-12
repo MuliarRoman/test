@@ -1,0 +1,54 @@
+fields:
+    title:
+        label: Title
+        span: auto
+        type: text
+    desc:
+        label: Desc
+        span: auto
+        type: textarea
+    price:
+        label: Price
+        span: auto
+        type: number
+    category:
+        label: Category
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+    size:
+        label: Size
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+    slug:
+        label: Slug
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+    preview:
+        label: Preview
+        mode: image
+        imageWidth: '200'
+        imageHeight: '200'
+        useCaption: true
+        thumbOptions:
+            mode: auto
+            extension: auto
+        span: auto
+        type: fileupload
+    gallery:
+        label: Gallery
+        mode: image
+        imageWidth: '100'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: auto
+            extension: auto
+        span: auto
+        type: fileupload

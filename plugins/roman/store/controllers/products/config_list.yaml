@@ -1,0 +1,12 @@
+list: $/roman/store/models/products/columns.yaml
+modelClass: Roman\Store\Models\Products
+title: Products
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'roman/store/products/update/:id'

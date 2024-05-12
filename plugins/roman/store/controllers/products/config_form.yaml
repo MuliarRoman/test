@@ -1,0 +1,10 @@
+name: Products
+form: $/roman/store/models/products/fields.yaml
+modelClass: Roman\Store\Models\Products
+defaultRedirect: roman/store/products
+create:
+    redirect: 'roman/store/products/update/:id'
+    redirectClose: roman/store/products
+update:
+    redirect: roman/store/products
+    redirectClose: roman/store/products

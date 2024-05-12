@@ -1,0 +1,84 @@
+title = "Products"
+layout = "default"
+url = "/categories/:category/:size?all-sizes/:price?"
+==
+<?php
+use Roman\Store\Models\Sizes;
+use Roman\Store\Models\Products;
+
+function onInit() {
+    $this->onFilterProducts();
+}
+
+function onFilterProducts() {
+    $category = $this->param('category');
+    $size = $this->param('size');
+    $price = $this->param('price');
+    
+    $data = ['category' => $category, 'size' => explode(',', $size), 'price' => $price];
+    $this['categories'] = $data;
+    $this['products'] = Products::listFrontEnd($data);
+    $this['sizes'] = Sizes::all();
+}
+?>
+==
+{{ categories|json_encode }} <br>
+
+{% for size in sizes %}
+
+{% set slugs = categories.size %}
+{% if size.slug not in slugs %}
+{% set slugs = slugs|merge([size.slug]) %}
+{% else %}
+{% set slugs = slugs|filter(item => item != size.slug) %}
+{% endif %}
+{% set slugs = slugs|filter(item => item != 'all-sizes') %}
+
+<label for="size_{{size.id}}">
+    {{size.name}}
+    <input type="checkbox" id="size_{{size.id}}" {% if size.slug in categories.size %} checked {% endif %}
+        onclick="navigateToPage(`{{ 'new-page'|page({ size: slugs|join(',') }) }}`)">
+</label>
+
+{% endfor %}
+
+<br><br>
+
+<div class="dual-range-1" id="input-range">
+    <input type="range" class="range-start" value="1000" max="0">
+    <input type="range" class="range-end" value="2500" max="5000">
+</div>
+
+<br>
+{{ products|json_encode }}
+
+{% put scripts %}
+
+<script type="module">
+    import DualRangeInput from 'https://unpkg.com/dual-range-input@latest/script.js';
+    DualRangeInput({ selector: ".dual-range-1" })
+        .update({
+            min: 0,
+            start: 1000,
+            end: 2500,
+            max: 5000
+        });
+
+    $(document).ready(function () {
+        $('.range-start, .range-end').on('input', function () {
+            var startValue = $('.range-start').val();
+            var endValue = $('.range-end').val();
+
+            console.log('Start value:', startValue);
+            console.log('End value:', endValue);
+        });
+    });
+</script>
+
+<script>
+    function navigateToPage(url) {
+        window.location.href = url;
+    }
+</script>
+
+{% endput %}

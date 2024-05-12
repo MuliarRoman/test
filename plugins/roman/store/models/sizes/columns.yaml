@@ -1,0 +1,19 @@
+columns:
+    id:
+        label: id
+        type: number
+        invisible: false
+    name:
+        label: name
+        type: text
+        searchable: true
+        invisible: false
+        sortable: true
+    products:
+        label: Products
+        type: text
+        searchable: true
+        invisible: false
+        sortable: true
+        select: title
+        relation: products

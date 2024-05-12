@@ -1,0 +1,12 @@
+list: $/roman/store/models/categories/columns.yaml
+modelClass: Roman\Store\Models\Categories
+title: Categories
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'roman/store/categories/update/:id'

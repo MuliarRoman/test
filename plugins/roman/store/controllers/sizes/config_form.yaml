@@ -1,0 +1,10 @@
+name: Sizes
+form: $/roman/store/models/sizes/fields.yaml
+modelClass: Roman\Store\Models\Sizes
+defaultRedirect: roman/store/sizes
+create:
+    redirect: 'roman/store/sizes/update/:id'
+    redirectClose: roman/store/sizes
+update:
+    redirect: roman/store/sizes
+    redirectClose: roman/store/sizes

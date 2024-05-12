@@ -1,0 +1,10 @@
+name: Categories
+form: $/roman/store/models/categories/fields.yaml
+modelClass: Roman\Store\Models\Categories
+defaultRedirect: roman/store/categories
+create:
+    redirect: 'roman/store/categories/update/:id'
+    redirectClose: roman/store/categories
+update:
+    redirect: roman/store/categories
+    redirectClose: roman/store/categories

@@ -1,0 +1,42 @@
+columns:
+    id:
+        label: id
+        type: number
+    title:
+        label: title
+        type: text
+        searchable: true
+        sortable: true
+    desc:
+        label: desc
+        type: text
+        searchable: true
+        sortable: true
+    price:
+        label: price
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: created_at
+        type: datetime
+        searchable: true
+        sortable: true
+    size:
+        label: size
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: size
+    category:
+        label: category
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: category
+    preview:
+        label: preview
+        type: partial
+        path: ~/plugins/roman/store/controllers/products/_preview-image.php
