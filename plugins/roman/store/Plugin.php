@@ -1,4 +1,6 @@
-<?php namespace Roman\Store;
+<?php
+
+namespace Roman\Store;
 
 use System\Classes\PluginBase;
 
@@ -26,6 +28,9 @@ class Plugin extends PluginBase
      */
     public function registerComponents()
     {
+        return [
+            'Roman\Store\Components\ShoppingCart' => 'shoppingCart'
+        ];
     }
 
     /**

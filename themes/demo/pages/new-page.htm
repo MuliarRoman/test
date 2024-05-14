@@ -1,6 +1,8 @@
-title = "Products"
-layout = "default"
 url = "/categories/:category/:size?all-sizes/:price?"
+layout = "default"
+title = "Products"
+
+[shoppingCart]
 ==
 <?php
 use Roman\Store\Models\Sizes;
@@ -51,6 +53,13 @@ function onFilterProducts() {
 
 <br>
 {{ products|json_encode }}
+<br>
+
+<form data-request="onAddToCart" data-request-update="'cart': '#cart-container'">
+    <input type="hidden" name="product" value="1">
+    <button type="submit">Add to Cart</button>
+</form>
+{% partial 'cart' %}
 
 {% put scripts %}
 
