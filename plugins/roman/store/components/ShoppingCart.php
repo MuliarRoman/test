@@ -27,4 +27,10 @@ class ShoppingCart extends ComponentBase
         $this->page['cart'] = Cart::getCart();
         // return redirect('/cart'); // Redirect to the cart page
     }
+
+    public function onClearCart()
+    {
+        Cart::clearCart();
+        $this->page['cart'] = Cart::getCart();
+    }
 }

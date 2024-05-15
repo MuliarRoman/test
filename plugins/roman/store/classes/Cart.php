@@ -22,4 +22,9 @@ class Cart extends Store
     {
         Session::put('cart', $cart);
     }
+
+    public static function clearCart()
+    {
+        Session::forget('cart');
+    }
 }
