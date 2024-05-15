@@ -1,0 +1,92 @@
+header {
+    
+   
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: pink 1px 5px 5px;
+    height: 70px;
+    border-bottom: 1px gray solid;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    
+    
+}
+
+
+
+.navigation {
+    margin: 0 10px;
+    
+}
+
+
+
+nav a {
+
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    margin: auto 0;
+    padding: 0 20px;
+    
+
+
+}
+
+nav a:hover {
+    color: deeppink;
+}
+
+.nav-btn{
+    display: flex;
+}
+
+.cart {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    margin: auto 20px;
+    background-image: url(/themes/mytheme/assets/images/cart2.png);
+    background-size: cover;
+    
+
+}
+
+.cart:hover{
+    background-image: url(/themes/mytheme/assets/images/cart-active.png);
+    cursor: pointer;
+}
+
+.cart-number
+{
+    position: absolute;
+    top: -10px;
+    right: -7px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: pink;
+    color: black;
+    font-size: 12px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account{
+    height: 40px;
+    width: 40px;
+    margin: auto 20px;
+    background-image: url(/themes/mytheme/assets/images/login2.png);
+    background-size: cover;
+    
+}
+
+.account:hover{
+    background-image: url(/themes/mytheme/assets/images/login-active2.png);
+    cursor: pointer;
+}

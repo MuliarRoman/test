@@ -1,0 +1,32 @@
+url = "/categories"
+layout = "default"
+title = "Categories"
+==
+<?php
+use Roman\Store\Models\Categories;
+
+function onStart() 
+{
+$this["categories"] = Categories::all();
+}
+?>
+==
+<div class="categories-wrapper">
+    <div class="categories-line">
+        <p>Категорії</p>
+        <hr>
+    </div>
+
+    <div class="categories-container">
+        {% for category in categories %}
+        <a href="{{'products' |page({category:category.slug})}}">
+            <div class="card">
+                <img src="{{category.preview.path}}" alt="...">
+                <div class="categories-name">
+                    <p>{{category.name}}</p>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+    </div>
+</div>

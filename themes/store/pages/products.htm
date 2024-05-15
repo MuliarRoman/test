@@ -1,0 +1,95 @@
+url = "/products/:category/:size?all-sizes/:price?"
+layout = "default"
+title = "Products"
+==
+
+<?php
+use Roman\Store\Models\Sizes;
+use Roman\Store\Models\Products;
+
+function onStart() 
+{
+    $category = $this->param('category');
+    $size = $this->param('size');
+    $price = $this->param('price');
+
+    $data = ['category' => $category, 'size' => explode(',', $size), 'price' => $price];
+    $this['categories'] = $data;
+
+
+    $this["products"] = Products::listFrontEnd($data);
+    $this["sizes"] = Sizes::all();
+
+
+}
+?>
+==
+
+<div class="products-wrapper">
+
+    <div class="categories-filter">
+        <div class="filter-size">
+            <p>Розмір:</p>
+            {% for size in sizes %}
+            {% set slugs = categories.size %}
+            {% if size.slug not in slugs %}
+            {% set slugs = slugs|merge([size.slug]) %}
+            {% else %}
+            {% set slugs = slugs|filter(item => item != size.slug) %}
+            {% endif %}
+            {% set slugs = slugs|filter(item => item != 'all-sizes') %}
+
+            <input type="checkbox" class="btn-check " id="btn-check-outlined" autocomplete="off" {% if size.slug in
+                categories.size %} checked {% endif %}
+                onclick="navigateToPage(`{{ 'products'|page({ size: slugs|join(',') })}}`)">
+            <label class="btn btn-outline-danger" for="btn-check-outlined">{{size.name}}</label>
+            {% endfor %}
+        </div>
+
+
+        <div class="filter-price">
+            <p>Ціна:</p>
+            <div class="price-text">
+                <p>Від</p>
+                <input type="number">
+                <p>До</p>
+                <input type="number">
+            </div>
+
+        </div>
+
+        <div class="filter-button">
+            <button>Застосувати</button>
+            <button>Скинути</button>
+        </div>
+
+
+
+    </div>
+
+    <div class="categories-content">
+
+        {% for product in products %}
+        <a href="{{'product' |page({product:product.slug})}}">
+            <div class="card">
+                <img src="{{product.preview.path}}" class="" alt="...">
+                <div class="card-body">
+                    <p><b>{{product.title}}</b></p>
+                    <p>Ціна: {{product.price}} грн</p>
+                    <p>Розмір: {{product.size.name}}</p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+
+
+    </div>
+</div>
+
+{% put scripts %}
+<script>
+    function navigateToPage(url) {
+        window.location.href = url;
+    }
+</script>
+{% endput %}

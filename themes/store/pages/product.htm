@@ -1,0 +1,72 @@
+url = "/product/:product"
+layout = "default"
+title = "Product"
+
+[shoppingCart]
+==
+<?php
+use Roman\Store\Models\Sizes;
+use Roman\Store\Models\Products;
+
+function onStart() 
+{
+    $product = $this->param('product');  
+    $this["product"] = Products::where("slug" , $product)->first();
+}
+?>
+==
+<div class="product-wrapper">
+
+    <div class="prod-container">
+
+        <div class="product-photo">
+
+            <div class="sub-photo">
+                <i class='bx bx-chevron-up'></i>
+                {% for image in product.gallery %}
+
+                <img src="{{image.path}}" alt="">
+                {% endfor %}
+                <i class='bx bx-chevron-down'></i>
+            </div>
+
+            <div class="main-photo">
+                <img src="{{product.preview.path}}" alt="">
+            </div>
+
+
+
+        </div>
+
+        <div class="product-info">
+            <h4>Біла футболка</h4>
+            <P>Ціна: 123 грн</P>
+            <p>Розміри: 11 22 33</p>
+            <form data-request="onAddToCart" data-request-update="'notify-cart-number': '#notify-cart-number'" >
+                {% set data = {
+                    'name': product.name,
+                    'price': product.price,
+                    'preview' : product.preview.path,
+                    'count' : 1
+                    
+                } %}
+                <input type="text" name="product" id="" value="{{data|json_encode}}" style="display: none;" >
+                <button class="product-button">Добавити в корзину</button>
+                
+
+            </form>
+
+            <form data-request="onClearCart" >
+                <button type="submit">clear</button>
+            </form>
+            <p>{{cart|json_encode}}</p>
+            
+
+        </div>
+
+    </div>
+
+    <div class="product-desc">
+        <hr>
+    </div>
+</div>

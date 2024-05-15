@@ -1,0 +1,53 @@
+
+
+footer{
+    
+    
+    height: 200px;
+    width: 100%;
+    /* background: linear-gradient(white, var(--mblue), var(--mgreen)); */
+    background: linear-gradient(white,  pink 80% );
+    
+    
+}
+
+.footer-wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 200px;        
+    
+}
+
+.footer-logo{
+    
+    padding: 25px 20px;
+    
+}
+
+.footer-logo img{
+    width: 150px;
+    height: 150px;
+    
+    
+}
+
+.footer-content{
+    margin: auto;
+}
+
+.footer-links{
+    padding: 20px;
+    margin: auto 0;
+}
+
+.footer-links p{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.footer-links img{
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+}

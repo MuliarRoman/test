@@ -1,0 +1,31 @@
+title = "Login"
+url = "/login"
+layout = "default"
+==
+<div class="login-wrapper">
+    <form>
+        <div class="login-form">
+            <div class="">
+                <img src="themes/mytheme/assets/images/logo2.png" alt="" width="100px" height="100px">
+            </div>
+
+            <div class="input-box">
+                <input type="text" placeholder="Номер телефону " required>
+                <i class='bx bx-user'></i>
+            </div>      
+
+            <div class="input-box">
+                <input type="password" placeholder="Введіть пароль" required>
+                <i class='bx bx-lock-alt'></i>
+            </div>
+            <div class="remember">
+                <label for=""><input type="checkbox" name="" id="">Запам'ятати мене</label>
+                <a href="">Забули пароль?</a>
+            </div>
+
+            <button class="login-button" type="submit">Вхід</button>
+            <p>Немає аккаунту? <span><a href="{{'register'|page}}">Реєстрація</a></span></p>
+        </div>
+        
+    </form>
+</div>

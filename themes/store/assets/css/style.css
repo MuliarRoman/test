@@ -1,0 +1,286 @@
+:root{
+    --mblue: #00e3fd;
+    --mgreen: #6ef195;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+   
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+html
+{
+    height: 100%;
+    
+}
+
+
+body {
+    font-family: "Roboto", sans-serif;;
+    background-color: white;
+    position: relative;
+    height: 100%;
+display: flex;
+flex-direction: column;
+min-height: 100%;
+
+    
+   
+}
+
+ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+ 
+
+.main{  
+    padding-top: 90px;
+    flex: 1 1 auto;
+    
+    
+}
+
+
+.home-logo{
+    display: flex;
+    justify-content: center;
+}
+
+.home-logo img
+{
+    margin-top: -30px;
+    width: 300px;
+    height: 300px;
+}
+
+
+
+
+/* = = = = Categories = = = =*/
+
+.categories-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) ;
+    /* grid-template-columns: repeat(5, 1fr); */
+    
+    justify-items: center;
+    
+
+    
+}
+
+
+
+.categories-line p{
+font-size: 24px;
+color: deeppink; 
+text-align: center;   
+}
+
+.categories-wrapper a {
+    text-decoration: none;
+    
+    
+}
+
+.categories-wrapper .card img{
+    height: 300px;  
+    width: 200px;
+    border-radius: 4px;
+    
+}
+
+
+
+.categories-wrapper .card {
+    position: relative;
+    height: auto;
+    width: 204px;
+    margin-bottom: 30px;
+    padding: 1px;
+    text-align: center;
+    transition: .3s;
+    
+}
+
+.categories-name{
+    position: absolute;
+    bottom: 1px;
+    width: 200px;
+    border-bottom-left-radius: 4px; 
+    border-bottom-right-radius: 4px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+
+
+.categories-wrapper .card:hover {
+    
+    transform: scale(1.05);
+    
+    cursor: pointer;
+    background-color: pink;
+    /* background-color: var(--mblue); */
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
+
+}
+
+
+
+
+/* = = = = Categories-name = = = = */
+
+.products-wrapper{
+    position: relative;
+    padding-top: 80px;
+}
+
+
+
+.categories-filter{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+    border: solid 1px gray;  
+    position: absolute;
+    position: fixed; 
+    top: 69px;;
+    z-index: 999;
+    background-color: white;
+    box-shadow: pink 1px 5px 5px;
+    padding: 5px 40px;
+}
+
+.categories-filter p{
+    margin: 0;
+}
+
+.filter-size{
+    text-align: center;
+    min-width: 200px;
+}
+
+.filter-size label{
+    font-size: 12px;
+}
+
+.filter-price{
+    text-align: center;
+    min-width: 200px;
+}
+
+.price-text{
+    display: block;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.price-text input{
+    border-radius: 20px;
+    height: 2em;
+    border: 1px solid deeppink;
+    width: 100px;
+    padding: 0 15px;
+    appearance: none;
+
+
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.price-text p
+{
+    margin: 0 5px;
+}
+
+
+.filter-button{
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-button button{
+    width: 120px;
+    margin: 5px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid deeppink;
+    background-color: white;
+
+}
+
+.filter-button button:hover {
+    background-color: pink;
+}
+
+
+
+
+
+.categories-content{
+    display: grid;
+    /* grid-template-columns: repeat(4, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)) ;
+    gap: 20px;
+    justify-items: center;
+    
+}
+
+.products-wrapper .card{
+    width: 205px;
+    height: auto;
+    padding: 2px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.products-wrapper .card:hover {
+    
+    transform: scale(1.05);
+    
+    cursor: pointer;
+    background-color: pink;
+    /* background-color: var(--mblue); */
+box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
+
+}
+
+.products-wrapper img{
+    width: 200px;
+    height: 300px;
+    border-radius: 4px;
+}
+
+.card-body{
+    padding: 5px;
+    text-align: center;
+    position: relative;
+
+
+}
+
+
+.card-body p{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
