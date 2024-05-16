@@ -22,13 +22,13 @@ columns:
         type: datetime
         searchable: true
         sortable: true
-    size:
-        label: size
+    sizes:
+        label: sizes
         type: text
         searchable: true
         sortable: true
         select: name
-        relation: size
+        relation: sizes
     category:
         label: category
         type: text

@@ -17,8 +17,8 @@ fields:
         descriptionFrom: description
         span: auto
         type: relation
-    size:
-        label: Size
+    sizes:
+        label: Sizes
         nameFrom: name
         descriptionFrom: description
         span: auto

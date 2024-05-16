@@ -31,6 +31,6 @@ class Sizes extends Model
     public $rules = [];
 
     public $hasMany = [
-        'products' => [\Roman\Store\Models\Products::class, 'key' => 'size_id', 'otherKey' => 'id']
+        'products' => [\Roman\Store\Models\Products::class, 'table' => 'roman_store_products_sizes', 'key' => 'size_id', 'otherKey' => 'id']
     ];
 }
