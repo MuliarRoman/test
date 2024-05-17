@@ -2,7 +2,6 @@ url = "/product/:product"
 layout = "default"
 title = "Product"
 
-[shoppingCart]
 ==
 <?php
 use Roman\Store\Models\Sizes;
@@ -42,25 +41,37 @@ function onStart()
             <h4>Біла футболка</h4>
             <P>Ціна: 123 грн</P>
             <p>Розміри: 11 22 33</p>
-            <form data-request="onAddToCart" data-request-update="'notify-cart-number': '#notify-cart-number'" >
-                {% set data = {
-                    'name': product.name,
-                    'price': product.price,
-                    'preview' : product.preview.path,
-                    'count' : 1
-                    
-                } %}
-                <input type="text" name="product" id="" value="{{data|json_encode}}" style="display: none;" >
-                <button class="product-button">Добавити в корзину</button>
-                
+            <form data-request="onAddToCart" data-request-update="'notify-cart-number': '#notify-cart-number'">
+                {% for size in product.sizes %}
+                <div>
+                    <input type="radio" name="size" value="{{size.name}}" class="form-check-input"
+                        id="btn-check-outlined_{{size.id}}" {% if loop.index0==0 %} checked {% endif %}>
+                    <label class="form-check-label" for="btn-check-outlined_{{size.id}}">{{size.name}}</label>
+                </div>
+                {% endfor %}
 
+                {% set data = {
+                'id': product.id,
+                'name': product.title,
+                'price': product.price,
+                'preview' : product.preview.path,
+                'count' : 1,
+                } %}
+                <input type="text" name="product" id="" value="{{data|json_encode}}" style="display: none;">
+                <button class="product-button">Добавити в корзину</button>
             </form>
 
-            <!-- <form data-request="onClearCart" >
+            <form data-request="onClearCart">
                 <button type="submit">clear</button>
             </form>
-            <p>{{cart|json_encode}}</p> -->
-            
+            <p>{{cart|json_encode}}</p>
+
+            {% for c in cart %}
+
+            <p>{{c.name}}</p>
+
+            {% endfor %}
+
 
         </div>
 

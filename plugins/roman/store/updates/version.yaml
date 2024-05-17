@@ -24,3 +24,6 @@ v1.0.8:
 v1.0.9:
     - 'Updated table roman_store_products'
     - builder_table_update_roman_store_products_3.php
+v1.0.10:
+    - 'Created table roman_store_products_sizes'
+    - builder_table_create_roman_store_products_sizes.php

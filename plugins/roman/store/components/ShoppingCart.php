@@ -22,8 +22,11 @@ class ShoppingCart extends ComponentBase
 
     public function onAddToCart()
     {
+        $size = post('size', null); // Assuming you get product data from a form
         $product = post('product'); // Assuming you get product data from a form
-        Cart::addProduct($product);
+        $data = json_decode($product, true);
+        $data['size'] = $size;
+        Cart::addProduct($data);
         $this->page['cart'] = Cart::getCart();
         // return redirect('/cart'); // Redirect to the cart page
     }

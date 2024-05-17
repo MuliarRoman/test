@@ -13,7 +13,7 @@ function onStart()
     $size = $this->param('size');
     $price = $this->param('price');
 
-    $data = ['category' => $category, 'size' => explode(',', $size), 'price' => $price];
+    $data = ['category' => $category, 'sizes' => explode(',', $size), 'price' => $price];
     $this['categories'] = $data;
 
 
@@ -31,7 +31,7 @@ function onStart()
         <div class="filter-size">
             <p>Розмір:</p>
             {% for size in sizes %}
-            {% set slugs = categories.size %}
+            {% set slugs = categories.sizes %}
             {% if size.slug not in slugs %}
             {% set slugs = slugs|merge([size.slug]) %}
             {% else %}
@@ -39,10 +39,10 @@ function onStart()
             {% endif %}
             {% set slugs = slugs|filter(item => item != 'all-sizes') %}
 
-            <input type="checkbox" class="btn-check " id="btn-check-outlined" autocomplete="off" {% if size.slug in
-                categories.size %} checked {% endif %}
+            <input type="checkbox" class="btn-check " id="btn-check-outlined_{{size.id}}" autocomplete="off" {% if
+                size.slug in categories.sizes %} checked {% endif %}
                 onclick="navigateToPage(`{{ 'products'|page({ size: slugs|join(',') })}}`)">
-            <label class="btn btn-outline-danger" for="btn-check-outlined">{{size.name}}</label>
+            <label class="btn btn-outline-danger" for="btn-check-outlined_{{size.id}}">{{size.name}}</label>
             {% endfor %}
         </div>
 

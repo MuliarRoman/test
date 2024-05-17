@@ -34,23 +34,26 @@ class Products extends Model
     ];
 
     public $belongsTo = [
-        'size' => \Roman\Store\Models\Sizes::class,
         'category' => \Roman\Store\Models\Categories::class
+    ];
+
+    public $belongsToMany = [
+        'sizes' => [\Roman\Store\Models\Sizes::class, 'table' => 'roman_store_products_sizes', 'key' => 'size_id', 'otherKey' => 'product_id'],
     ];
 
     public function scopeListFrontEnd($query, $options = [])
     {
         extract(array_merge([
-            'size' => '',
+            'sizes' => '',
             'category' => '',
             'price' => '',
         ], $options));
 
-        $query->with('size');
+        $query->with('sizes');
         $query->with('category');
 
-        if ($size || $category || $price) {
-            $query->where(function ($query) use ($size, $category, $price) {
+        if ($sizes || $category || $price) {
+            $query->where(function ($query) use ($sizes, $category, $price) {
                 // if ($size) {
                 //     $query->where(function ($query) use ($search) {
                 //         $query->where('name', 'like', '%' . $search . '%')
@@ -67,13 +70,9 @@ class Products extends Model
                 //     });
                 // }
 
-                if ($size and !in_array('all-sizes', $size)) {
-                    $query->where(function ($query) use ($size) {
-                        foreach ($size as $key => $value) {
-                            $query->orWhereHas('size', function ($query) use ($value) {
-                                $query->where('slug', $value);
-                            });
-                        }
+                if ($sizes and !in_array('all-sizes', $sizes)) {
+                    $query->whereHas('sizes', function ($query) use ($sizes) {
+                        $query->whereIn('slug', $sizes);
                     });
                 }
 
