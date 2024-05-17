@@ -1,0 +1,109 @@
+title = "Account"
+url = "/account"
+layout = "default"
+==
+
+<div class="account-wrapper">
+    <div class="page-name">
+        <p>Особистий кабінет</p>
+        <hr>
+    </div>
+    <div class="flex-cont">
+    <div class="account-menu">
+        <ul>
+            <li><a href="">Профіль</a></li>
+            <li><a href="">Історія покупок</a></li>
+            <li><a href="">Кошик</a></li>
+            <li><a href="">Каталог</a></li>
+        </ul>
+
+        <hr>
+        <button class="button-cart" type="submit">Вихід</button>
+    </div>
+    <div class="account-container">
+    <form>
+        <div class="input-box">
+            <p>Прізвище</p>
+            <input type="text" placeholder="Введіть прізвище">
+            
+        </div>
+        <div class="input-box">
+            <p>Ім'я</p>
+            <input type="text" placeholder="Введіть імя">
+        </div>
+        <div class="input-box">
+            <p>По батькові</p>
+            <input type="text" placeholder="Введіть по батькові">
+        </div>
+        <div class="input-box">
+            <p>Номер телефону</p>
+            <input type="number" placeholder="Введіть номер телефону">
+        </div>
+        <div class="input-box">
+            <p>Адреса</p>
+            <input type="text" placeholder="Введіть адресу доставки">
+        </div>
+        <div class="input-box">
+            <p>Електрона пошта</p>
+            <input type="email" placeholder="Введіть Ел. пошту" value="">
+        </div>
+        <!-- <div class="input-box bank">
+            <p>Данні карти</p>
+            <input type="text" placeholder="Введіть номер карти">
+            <div class=" bank-card" >
+                <input type="text" placeholder="Введіть дату" width="100px">
+                <input type="text" placeholder="Введіть CSV" width="100px ">
+            </div>
+        </div> -->
+        <button class="button-cart" type="submit">Зберегти зміни</button>
+        
+    </div>
+</div>
+
+    <hr>
+    <br>
+
+    <div class="page-name">
+        <p>Історія покупок</p>
+        <hr>
+    </div>
+
+    <div class="history">
+        <table class="cart-table">
+            <tr>
+                <th>Товар</th>
+                <th>Розмір</th>
+                <th>Ціна</th>
+                <th>Кількість</th>
+                <th>Сума</th>
+            </tr>
+            <tr>
+                <td>
+                    <div style="display: flex;">
+                        <img class="cart-items-img" src=" {{ 'assets/images/jeans.jpg'|theme }}" alt="">
+                        <p>Джинси сині</p>
+                    </div>
+                </td>
+                <td> S</td>
+                <td>123 грн</td>
+                <td>
+                    <div class="cart-items-count">
+                    
+                        <label >000</label>
+                        
+                    </div>
+                </td>
+                <td> 246 грн</td>
+            </tr>
+
+            <tr>
+                <td><img class="cart-items-img" src=" {{ 'assets/images/jeans.jpg'|theme }}" alt="">
+                    Назв</td>
+                <td> S</td>
+                <td>123 грн</td>
+                <td> 1</td>
+                <td> 246 грн</td>
+            </tr>
+        </table>
+    </div>
+</div>

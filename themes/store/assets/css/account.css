@@ -1,0 +1,49 @@
+.account-wrapper{
+    padding: 0 30px;
+}
+
+.account-container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.account-container form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr );
+    gap: 20px;
+}
+
+.account-container p{
+    margin: 0;
+}
+
+.flex-cont{
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-cont a{
+    color: black;
+}
+
+.account-menu{
+    min-width: 300px;
+
+}
+
+.account-menu ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.history{
+    display: flex;
+    justify-content: center;
+}
+.history .cart-table{
+    width: 70%;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}

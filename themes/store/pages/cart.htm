@@ -1,0 +1,104 @@
+title = "Cart"
+url = "/cart"
+layout = "default"
+==
+
+<div class="cart-wrapper">
+    <div class="page-name">
+        <p>Кошик</p>
+        <hr>
+    </div>
+
+    <div class="cart-empty">
+        <h3>Корзина пуста</h3>
+        <a href=""><button class="button-cart" type="submit">Перейти до покупок</button></a>
+    </div>
+
+    <div class="cart-container">
+        <div>
+        <div class="page-name">
+            <p >Оформити замовлення</p>       
+        </div>
+        <div class="order">
+                <form>
+                    <div class="input-box">
+                        <p>Прізвище</p>
+                        <input type="text" placeholder="Введіть прізвище">
+                        
+                    </div>
+                    <div class="input-box">
+                        <p>Ім'я</p>
+                        <input type="text" placeholder="Введіть імя">
+                    </div>
+                    <div class="input-box">
+                        <p>По батькові</p>
+                        <input type="text" placeholder="Введіть по батькові">
+                    </div>
+                    <div class="input-box">
+                        <p>Номер телефону</p>
+                        <input type="number" placeholder="Введіть номер телефону">
+                    </div>
+                    <div class="input-box">
+                        <p>Адреса</p>
+                        <input type="text" placeholder="Введіть адресу доставки">
+                    </div>
+                    <div class="input-box bank">
+                        <p>Данні карти</p>
+                        <input type="text" placeholder="Введіть номер карти">
+                        <div class=" bank-card" >
+                            <input type="text" placeholder="Введіть дату" width="100px">
+                            <input type="text" placeholder="Введіть CSV" width="100px ">
+                        </div>
+                    </div>
+
+                    <button class="button-cart" type="submit">Оформити</button>
+                </form>
+        </div>
+    </div>
+
+
+        <div class="table-container">
+            <table class="cart-table">
+                <tr>
+                    <th>Товар</th>
+                    <th>Розмір</th>
+                    <th>Ціна</th>
+                    <th>Кількість</th>
+                    <th>Сума</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="display: flex;">
+                            <img class="cart-items-img" src=" {{ 'assets/images/jeans.jpg'|theme }}" alt="">
+                            <p>Джинси сині</p>
+                        </div>
+                    </td>
+                    <td> S</td>
+                    <td>123 грн</td>
+                    <td>
+                        <div class="cart-items-count">
+                            <i class='bx bx-minus' ></i>
+                            <label >000</label>
+                            <i class='bx bx-plus' ></i>
+                        </div>
+                    </td>
+                    <td> 246 грн</td>
+                </tr>
+
+                <tr>
+                    <td><img class="cart-items-img" src=" {{ 'assets/images/jeans.jpg'|theme }}" alt="">
+                        Назв</td>
+                    <td> S</td>
+                    <td>123 грн</td>
+                    <td> 1</td>
+                    <td> 246 грн</td>
+                </tr>
+            </table>
+
+            <p style="text-align: right; font-size: 22px;">Загальна сума: 4546 грн</p>
+        </div>
+        <hr>
+
+        
+    </div>
+</div>

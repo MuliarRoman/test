@@ -1,0 +1,113 @@
+.cart-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 0 30px;
+}
+
+.cart-empty{
+    position: fixed;
+    margin-top: 80px;
+    align-self: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    /* !!!!!!!!!! */
+    display: none;
+    
+}
+
+.button-cart{
+    width: 298px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid deeppink;
+    background-color: white;
+    padding: 0 10px;
+}
+
+.button-cart:hover{
+    background-color: pink;
+    cursor: pointer;
+}
+
+
+.cart-container{
+    padding: 0 20px;   
+}
+
+.cart-table{
+    width: 100%;
+    
+    
+}
+
+th{
+    border: none;
+}
+
+.cart-table th,td{
+    text-align: center;
+    padding: 0 20px;
+    /* border: 1px solid black; */
+    border-right: 1px solid rgb(187, 187, 187);
+    border-bottom: 1px solid rgb(187, 187, 187);
+    
+    
+    font-size: 20px;
+    
+}
+
+
+.cart-table tr td:first-child{
+    min-width: 350px;
+    max-width: 450px;
+    text-align: left;
+    
+}
+
+
+
+
+.cart-items-img{
+
+    margin: 10px;
+    width: 100px;
+    height: 150px;
+}
+
+.cart-items-count
+{
+    font-size: 24px;
+    min-width: 108px;
+}
+
+.order {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.order p{
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.bank{
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 15px;
+    padding: 0 5px;
+}
+
+.bank-card{
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.bank-card input{
+    width: 144px;
+   
+}

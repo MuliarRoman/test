@@ -43,7 +43,15 @@ nav a:hover {
     display: flex;
 }
 
+.nav-btn a{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   align-self: center;
+}
+
 .cart {
+    
     position: relative;
     height: 40px;
     width: 40px;
