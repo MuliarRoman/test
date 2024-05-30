@@ -1,0 +1,38 @@
+fields:
+    first_name:
+        label: 'First name'
+        span: auto
+        readOnly: 1
+        type: text
+    last_name:
+        label: 'Last name'
+        span: auto
+        readOnly: 1
+        type: text
+    email:
+        label: Email
+        span: auto
+        readOnly: 1
+        type: text
+    address:
+        label: Address
+        span: auto
+        readOnly: 1
+        type: text
+    created_at:
+        label: 'Created at'
+        mode: datetime
+        span: auto
+        readOnly: 1
+        type: datepicker
+    cart:
+        label: Partial
+        span: full
+        path: $/roman/store/partials/_cart.php
+        readOnly: 1
+        type: partial
+    phone:
+        label: Phone
+        span: auto
+        readOnly: 1
+        type: text

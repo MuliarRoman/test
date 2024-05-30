@@ -30,3 +30,24 @@ v1.0.10:
 v1.0.11:
     - 'Updated table roman_store_products'
     - builder_table_update_roman_store_products_4.php
+v1.0.12:
+    - 'Created table roman_store_order'
+    - builder_table_create_roman_store_order.php
+v1.0.13:
+    - 'Updated table roman_store_order'
+    - builder_table_update_roman_store_order.php
+v1.0.14:
+    - 'Updated table roman_store_order'
+    - builder_table_update_roman_store_order_2.php
+v1.0.15:
+    - 'Updated table roman_store_order'
+    - builder_table_update_roman_store_order_3.php
+v1.0.16:
+    - 'Updated table roman_store_order'
+    - builder_table_update_roman_store_order_4.php
+v1.0.17:
+    - 'Updated table roman_store_order'
+    - builder_table_update_roman_store_order_5.php
+v1.0.18:
+    - 'Updated table roman_store_order'
+    - builder_table_update_roman_store_order_6.php

@@ -22,3 +22,7 @@ navigation:
                 label: Products
                 url: roman/store/products
                 icon: icon-sitemap
+            side-menu-item4:
+                label: Orders
+                url: roman/store/order
+                icon: icon-sitemap

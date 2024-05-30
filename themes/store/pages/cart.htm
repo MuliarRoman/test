@@ -16,117 +16,55 @@ layout = "default"
 
     <div class="cart-container">
         <div>
-        <div class="page-name">
-            <p >Оформити замовлення</p>       
-        </div>
-        <div class="order">
-                <form>
+            <div class="page-name">
+                <p>Оформити замовлення</p>
+            </div>
+            <div class="order">
+                <form data-request="onSaveOrder" data-request-validate data-request-flash="success"
+                    data-request-message="Пітдвердження..."
+                    data-request-update="'table-cart': '#cart-table', 'notify-cart-number': '#notify-cart-number'">
+                    <input style="display: none;" type="text" name="user_id" placeholder="Введіть прізвище"
+                        value="{{user.id}}" required>
                     <div class="input-box">
                         <p>Прізвище</p>
-                        <input type="text" placeholder="Введіть прізвище">
-                        
+                        <input type="text" name="last_name" placeholder="Введіть прізвище" value="{{user.last_name}}"
+                            required>
                     </div>
                     <div class="input-box">
                         <p>Ім'я</p>
-                        <input type="text" placeholder="Введіть імя">
-                    </div>
-                    <div class="input-box">
-                        <p>По батькові</p>
-                        <input type="text" placeholder="Введіть по батькові">
+                        <input type="text" name="first_name" placeholder="Введіть ім'я" value="{{user.first_name}}"
+                            required>
                     </div>
                     <div class="input-box">
                         <p>Номер телефону</p>
-                        <input type="number" placeholder="Введіть номер телефону">
+                        <input type="number" name="phone" placeholder="Введіть номер телефону" required>
                     </div>
                     <div class="input-box">
                         <p>Адреса</p>
-                        <input type="text" placeholder="Введіть адресу доставки">
+                        <input type="text" name="address" placeholder="Введіть адресу доставки" required>
                     </div>
                     <div class="input-box bank">
                         <p>Данні карти</p>
-                        <input type="text" placeholder="Введіть номер карти">
-                        <div class=" bank-card" >
-                            <input type="text" placeholder="Введіть дату" width="100px">
-                            <input type="text" placeholder="Введіть CSV" width="100px ">
+                        <input type="text" name="card_number" placeholder="Введіть номер карти" required>
+                        <p data-validate-for="card_number"></p>
+                        <div class="bank-card">
+                            <input type="text" name="card_expiry" placeholder="Введіть дату" width="100px" required>
+                            <p data-validate-for="card_expiry"></p>
+                            <input type="text" name="card_csv" placeholder="Введіть CSV" width="100px" required>
+                            <p data-validate-for="card_csv"></p>
                         </div>
                     </div>
-
                     <button class="button-cart" type="submit">Оформити</button>
                 </form>
+
+            </div>
         </div>
-    </div>
 
-
-        <div class="table-container">
-            <table class="cart-table">
-
-                <!-- = = = Стовпці = = = -->
-                <tr>
-                    <th>Товар</th>
-                    <th>Розмір</th>
-                    <th>Ціна</th>
-                    <th>Кількість</th>
-                    <th>Сума</th>
-                    <th></th>
-                </tr>
-
-                <!-- = = = Товар = = = -->
-                <tr>
-                    <td>
-                        <div style="display: flex; align-items: center;">
-                            <img class="cart-items-img" src=" {{ 'assets/images/jeans.jpg'|theme }}" alt="">
-                            <div>
-                                <p class="cart-items-title"><b> Джинси сині</b></p>
-                                <p class="cart-items-desc">Джинси сині подерті</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td ><p class="cart-items-size">S</p></td>
-                    <td><p class="cart-items-price">₴123</p></td>
-                    <td>
-                        <div class="cart-items-count">
-                                <div class="elemnt change"><p>-</p></div>
-                                <div class="elemnt"><input class="count" type="text" value="30"></div>
-                                <div class="elemnt change"><p>+</p></div>
-                        </div>
-                    </td>
-                    <td><p class="cart-items-sum">₴246</p></td>
-                    <td><i class='bx bxs-minus-circle'></i></td>
-                </tr>
-
-                <!-- = = = Товар = = = -->
-                <tr>
-                    <td>
-                        <div style="display: flex; align-items: center;">
-                            <img class="cart-items-img" src=" {{ 'assets/images/jeans.jpg'|theme }}" alt="">
-                            <div>
-                                <p class="cart-items-title"><b> Джинси сині</b></p>
-                                <p class="cart-items-desc">Джинси сині подерті</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td ><p class="cart-items-size">S</p></td>
-                    <td><p class="cart-items-price">₴123</p></td>
-                    <td>
-                        <div class="cart-items-count">
-                                <div class="elemnt change"><p>-</p></div>
-                                <div class="elemnt"><input class="count" type="text" value="30"></div>
-                                <div class="elemnt change"><p>+</p></div>
-                        </div>
-                    </td>
-                    <td><p class="cart-items-sum">₴246</p></td>
-                    <td><i class='bx bxs-minus-circle'></i></td>
-                </tr>
-
-            </table>
-            <div style="position: relative;">
-            <div class="summary">
-            <p >Загальна сума: <b>₴4546</b>  </p>
-        </div>
-        </div>
+        <div id="cart-table">
+            {% partial 'table-cart' %}
         </div>
         <hr>
 
-        
+
     </div>
 </div>

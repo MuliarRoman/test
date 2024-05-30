@@ -63,9 +63,9 @@ function onStart(){
                     <p>Номер телефону</p>
                     <input type="number" placeholder="Введіть Номер тел." name="number" value="{{user.number}}">
                 </div>
-                
-        <button class="button-cart" type="submit">Зберегти зміни</button>
-</form>
+
+                <button class="button-cart" type="submit">Зберегти зміни</button>
+            </form>
 
         </div>
 
@@ -80,41 +80,70 @@ function onStart(){
     </div>
 
     <div class="history">
+        {% if user.orders != null %}
         <table class="cart-table">
             <tr>
-                <th>Товар</th>
-                <th>Розмір</th>
-                <th>Ціна</th>
-                <th>Кількість</th>
-                <th>Сума</th>
+                <th>Замовлення</th>
+                <th>Дата</th>
+                <th>Адресса</th>
+                <th>Телефон</th>
+                <th>Остаточна сума</th>
+                <th>Покупки</th>
             </tr>
+            {% for order in user.orders %}
             <tr>
                 <td>
-                    <div style="display: flex;">
-                        <img class="cart-items-img" src=" {{ 'assets/images/jeans.jpg'|theme }}" alt="">
-                        <p>Джинси сині</p>
-                    </div>
+                    <p>000{{order.id}}</p>
                 </td>
-                <td> S</td>
-                <td>123 грн</td>
                 <td>
-                    <div class="cart-items-count">
-
-                        <label>000</label>
-
-                    </div>
+                    <p>{{order.created_at}}</p>
                 </td>
-                <td> 246 грн</td>
-            </tr>
+                <td>
+                    <p>{{order.address}}</p>
+                </td>
+                <td>
+                    <p>{{order.phone}}</p>
+                </td>
+                <td>
+                    <p>{{order.cart|reduce((prev, next, k) => prev + next.price * next.count, 0)}}uah</p>
+                </td>
+                <td>
+                    <table>
+                        <th>Товар</th>
+                        <th>Розмір</th>
+                        <th>Ціна</th>
+                        <th>Кількість</th>
+                        <th>Сума</th>
+                        {% for oc in order.cart %}
+                        <tr>
+                            <td>
+                                <div style="display: flex;align-items: center;">
+                                    <img style="object-fit: contain;" class="cart-items-img" src="{{oc.src}}"
+                                        alt="{{oc.src}}">
+                                    <p>{{oc.name}}</p>
+                                </div>
+                            </td>
+                            <td>{{oc.size}}</td>
+                            <td>{{oc.price}} грн</td>
+                            <td>
+                                <div class=" cart-items-count">
 
-            <tr>
-                <td><img class="cart-items-img" src=" {{ 'assets/images/jeans.jpg'|theme }}" alt="">
-                    Назв</td>
-                <td> S</td>
-                <td>123 грн</td>
-                <td> 1</td>
-                <td> 246 грн</td>
+                                    <label>{{oc.count}}</label>
+
+                                </div>
+                            </td>
+                            <td>{{oc.price * oc.count}} грн</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </td>
             </tr>
+            {% endfor %}
         </table>
+        {% else %}
+        <article>
+            <p>Покупок немає!</p>
+        </article>
+        {% endif %}
     </div>
 </div>

@@ -5,16 +5,16 @@ title = "Register"
 [registration]
 ==
 
-{% if user == null %}
-    {% do redirect('/account') %}
+{% if user != null %}
+{% do redirect('/account') %}
 {% endif %}
 
 <div class="register-wrapper">
 
 
-    <form data-request="onRegister" data-request-validate>
+    <form data-request="onRegister" data-request-success="onSuccess()" data-request-validate>
         <div class="register-form">
-            <img src="themes/mytheme/assets/images/logo2.png" alt="" width="100px" height="100px">
+            <img src="themes/store/assets/images/logo2.png" alt="" width="100px" height="100px">
 
 
             <div class="input-box">
@@ -59,3 +59,12 @@ title = "Register"
         </div>
     </form>
 </div>
+
+{% put scripts %}
+<script>
+    function onSuccess() {
+        // Replace 'your-success-url' with the URL you want to redirect to
+        window.location.href = '/account';
+    }
+</script>
+{% endput %}

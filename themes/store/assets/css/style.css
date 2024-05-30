@@ -1,11 +1,7 @@
-
-
 * {
     margin: 0;
     padding: 0;
-    
 }
-
 
 a {
     text-decoration: none;
@@ -17,7 +13,6 @@ html {
 
 body {
     font-family: "Roboto", sans-serif;
-    ;
     background-color: white;
     position: relative;
     height: 100%;
@@ -35,7 +30,7 @@ ul {
     justify-content: space-between;
 }
 
-button{
+button {
     width: 298px;
     height: 40px;
     border-radius: 20px;
@@ -44,8 +39,8 @@ button{
     padding: 0 10px;
 }
 
-button:hover{
-    background-color: pink ;
+button:hover {
+    background-color: pink;
 }
 
 .main {
@@ -64,17 +59,13 @@ button:hover{
     height: 300px;
 }
 
-
 /* = = = = Categories = = = =*/
 .categories-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     /* grid-template-columns: repeat(5, 1fr); */
     justify-items: center;
-    
 }
-
-
 
 .page-name p {
     font-size: 24px;
@@ -100,7 +91,7 @@ button:hover{
     margin-bottom: 30px;
     padding: 1px;
     text-align: center;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .categories-name {
@@ -113,15 +104,12 @@ button:hover{
     background-color: rgba(255, 255, 255, 0.85);
 }
 
-
-
 .categories-wrapper .card:hover {
     transform: scale(1.05);
     cursor: pointer;
     background-color: pink;
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
 }
-
 
 /* = = = = Products = = = = */
 
@@ -138,19 +126,18 @@ button:hover{
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 80px;
+    /* height: 80px; */
     border: solid 1px gray;
     position: absolute;
     position: fixed;
     top: 69px;
     z-index: 100;
-    background-color: white ;
+    background-color: white;
     box-shadow: pink 1px 5px 5px;
     padding: 5px 40px;
 
-    transition: transform .5s;
+    transition: transform 0.5s;
 }
-
 
 .categories-filter p {
     margin: 0;
@@ -170,7 +157,7 @@ button:hover{
     min-width: 200px;
 }
 
-.filter-price .input-box{
+.filter-price .input-box {
     margin: 5px 0;
     border-radius: 20px;
     height: 30px;
@@ -204,7 +191,6 @@ input::-webkit-inner-spin-button {
     margin: 0 5px;
 }
 
-
 .filter-button {
     display: flex;
     flex-direction: column;
@@ -236,7 +222,7 @@ input::-webkit-inner-spin-button {
     height: auto;
     padding: 2px;
     border-radius: 10px;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .products-wrapper .card:hover {
@@ -245,7 +231,6 @@ input::-webkit-inner-spin-button {
     /* background-color: pink; */
     /* background-color: var(--mblue); */
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
-
 }
 
 .products-wrapper img {
@@ -263,18 +248,15 @@ input::-webkit-inner-spin-button {
     position: relative;
 }
 
-
 .card-body p {
-    margin:2px;
+    margin: 2px;
     padding: 0 5px;
     font-size: 14px;
 }
 
-.products-button{
+.products-button {
     margin: 5px;
     width: 180px;
-   
-    
 }
 
 /* = = = Range = = = */
@@ -287,10 +269,10 @@ input[type="range"] {
     height: 15px;
     background-color: transparent;
     margin: 5px 0;
-  }
-  
-  /* Стилі для додаткових керованих точок (регуляторів) у браузері Google Chrome */
-  input[type="range"]::-webkit-slider-thumb {
+}
+
+/* Стилі для додаткових керованих точок (регуляторів) у браузері Google Chrome */
+input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 20px;
@@ -299,13 +281,10 @@ input[type="range"] {
     border: 2px solid pink;
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s;
-  }
-  
-  /* Стилі для керованих точок при наведенні у браузері Google Chrome */
-  input[type="range"]::-webkit-slider-thumb:hover {
+}
+
+/* Стилі для керованих точок при наведенні у браузері Google Chrome */
+input[type="range"]::-webkit-slider-thumb:hover {
     background-color: deeppink;
     border-color: deeppink;
-  }
-
-
-  
+}

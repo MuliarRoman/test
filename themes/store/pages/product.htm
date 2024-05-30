@@ -45,7 +45,8 @@ function onStart()
                 <div class="slider-container">
                     <div class="slider">
                         {% for image in product.gallery %}
-                        <img src="{{image.path}}" alt="">
+                        <img style="cursor: pointer;object-fit: contain;" class="onPressImage" src="{{image.path}}"
+                            alt="">
                         {% endfor %}
                     </div>
                 </div>
@@ -53,7 +54,7 @@ function onStart()
             </div>
 
             <div class="main-photo">
-                <img src="{{product.preview.path}}" alt="">
+                <img style="object-fit: contain;" id="product-active-image" src="{{product.preview.path}}" alt="">
             </div>
 
         </div>
@@ -66,24 +67,27 @@ function onStart()
             </div>
             <div class="product-buy">
 
-                <p >Розміри: </p>
-                <form data-request="onAddToCart" data-request-update="'notify-cart-number': '#notify-cart-number'">
+                <p>Розміри: </p>
+                <form data-request="onAddToCart" data-request-update="'notify-cart-number': '#notify-cart-number'"
+                    data-request-flash="success" data-request-message="Добавлення...">
                     <div style="display: flex; ">
-                    {% for size in product.sizes %}
-                    
+                        {% for size in product.sizes %}
+
                         <div>
                             <input type="radio" name="size" value="{{size.name}}" class="form-check-input btn-check"
                                 id="btn-check-outlined_{{size.id}}" {% if loop.index0==0 %} checked {% endif %}>
-                            <label class="form-check-label btn btn-outline-danger" for="btn-check-outlined_{{size.id}}">{{size.name}}</label>
+                            <label class="form-check-label btn btn-outline-danger"
+                                for="btn-check-outlined_{{size.id}}">{{size.name}}</label>
                         </div>
 
 
-                    
-                    {% endfor %}
-                </div>
+
+                        {% endfor %}
+                    </div>
 
                     {% set data = {
                     'id': product.id,
+                    'src': product.preview.path,
                     'name': product.title,
                     'price': product.price,
                     'preview' : product.preview.path,
@@ -99,7 +103,7 @@ function onStart()
                 </form>
             </div>
 
-            <form data-request="onClearCart">
+            <!-- <form data-request="onClearCart">
                 <button type="submit">clear</button>
             </form>
             <p>{{cart|json_encode}}</p>
@@ -108,12 +112,22 @@ function onStart()
 
             <p>{{c.name}}</p>
 
-            {% endfor %}
+            {% endfor %} -->
 
 
         </div>
 
     </div>
 
-    
+
 </div>
+
+{% put scripts %}
+<script>
+    $('.onPressImage').on('click', function (e) {
+        const activeImage = $("#product-active-image");
+        const clickedImage = $(this);
+        activeImage.attr('src', clickedImage.attr('src'));
+    });
+</script>
+{% endput %}

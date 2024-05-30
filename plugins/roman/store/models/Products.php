@@ -69,6 +69,20 @@ class Products extends Model
                 //               ->orWhere('code', 'like', '%' . $search_mobile . '%');
                 //     });
                 // }
+                if ($price) {
+                    // Split the price string into min and max values
+                    $priceRange = explode(',', $price);
+                    $minPrice = isset($priceRange[0]) ? (float)$priceRange[0] : null;
+                    $maxPrice = isset($priceRange[1]) ? (float)$priceRange[1] : null;
+
+                    if ($minPrice !== null && $maxPrice !== null) {
+                        $query->whereBetween('price', [$minPrice, $maxPrice]);
+                    } elseif ($minPrice !== null) {
+                        $query->where('price', '>=', $minPrice);
+                    } elseif ($maxPrice !== null) {
+                        $query->where('price', '<=', $maxPrice);
+                    }
+                }
 
                 if ($sizes and !in_array('all-sizes', $sizes)) {
                     $query->whereHas('sizes', function ($query) use ($sizes) {

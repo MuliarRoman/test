@@ -6,6 +6,34 @@ use Session; // Import the Session class
 
 class Cart extends Store
 {
+    public static function incrementProduct($productId)
+    {
+        $cart = self::getCart();
+
+        foreach ($cart as &$item) {
+            if ($item['id'] == $productId) {
+                $item['count'] += 1;
+                break;
+            }
+        }
+
+        self::saveCart($cart);
+    }
+
+    public static function decrementProduct($productId)
+    {
+        $cart = self::getCart();
+
+        foreach ($cart as &$item) {
+            if ($item['id'] == $productId && $item['count'] > 1) {
+                $item['count'] -= 1;
+                break;
+            }
+        }
+
+        self::saveCart($cart);
+    }
+
     public static function addProduct($product)
     {
         $cart = self::getCart();
@@ -26,6 +54,18 @@ class Cart extends Store
         if (!$found) {
             $cart[] = $product;
         }
+
+        self::saveCart($cart);
+    }
+
+    public static function removeProduct($productId)
+    {
+        $cart = self::getCart();
+
+        // Filter out the product with the given ID
+        $cart = array_filter($cart, function ($item) use ($productId) {
+            return $item['id'] !== $productId;
+        });
 
         self::saveCart($cart);
     }

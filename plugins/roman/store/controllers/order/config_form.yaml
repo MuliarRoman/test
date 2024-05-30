@@ -1,0 +1,10 @@
+name: Order
+form: $/roman/store/models/order/fields.yaml
+modelClass: Roman\Store\Models\Order
+defaultRedirect: roman/store/order
+create:
+    redirect: 'roman/store/order/update/:id'
+    redirectClose: roman/store/order
+update:
+    redirect: roman/store/order
+    redirectClose: roman/store/order

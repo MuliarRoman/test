@@ -148,13 +148,14 @@ class User extends Model implements Authenticatable, CanResetPassword
         'groups' => [
             UserGroup::class,
             'table' => 'users_groups'
-        ]
+        ],
     ];
 
     /**
      * @var array hasMany relations
      */
     public $hasMany = [
+        'orders' => ['Roman\Store\Models\Order'],
         'activity_log' => [UserLog::class, 'delete' => true],
     ];
 

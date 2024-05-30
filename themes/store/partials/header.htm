@@ -2,7 +2,7 @@
     <div class="navigation">
         <nav>
             <ul>
-                <img src="/themes/mytheme/assets/images/logo2.png" alt="logo" width="70px" height="70px">
+                <img src="/themes/store/assets/images/logo2.png" alt="logo" width="70px" height="70px">
                 <a href="{{'home' |page}}">Головна</a>
                 <a href="{{'categories' |page}}">Категорії</a>
                 <a href="{{'about' |page}}">Про нас</a>
@@ -15,10 +15,14 @@
     </div>
 
     <div class="nav-btn">
-        
-        <a href="{{'cart' |page}}"><div class="cart" id="notify-cart-number">{% partial 'notify-cart-number' %}</div></a>
+
+        <a href="{{'cart' |page}}">
+            <div class="cart" id="notify-cart-number">{% partial 'notify-cart-number' %}</div>
+        </a>
         {% if user != null %}
-        <a href="{{'account' |page}}"><div class="account"></div></a>
+        <a href="{{'account' |page}}">
+            <div class="account"></div>
+        </a>
         {% endif %}
     </div>
 

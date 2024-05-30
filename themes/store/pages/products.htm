@@ -1,4 +1,4 @@
-url = "/products/:category/:size?all-sizes/:price?"
+url = "/products/:category/:size/:price?"
 layout = "default"
 title = "Products"
 ==
@@ -56,19 +56,18 @@ function onStart()
                 <input type="number">
             </div> -->
             <p>Ціна:</p>
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <label for="priceRange1" class="form-label">Від:</label>
-                <input type="range" class="form-range" min="0" max="100" step="1" id="priceRange1" value="0">
-                <input class="input-box" type="text" value="0">
-                <label for="priceRange2" class="form-label">До:</label>
-                <input type="range" class="form-range" min="0" max="100" step="1" id="priceRange2" value="0">
-                <input class="input-box" type="text" value="0">
+            <div>
+                <div id="dhrS"></div>
+                <div style="display: flex;align-items: center;justify-content: center;column-gap: 20px;">
+                    <p id="x1"></p>
+                    <p id="x2"></p>
+                </div>
             </div>
         </div>
 
         <div class="filter-button">
-            <button>Застосувати</button>
-            <button>Скинути</button>
+            <button data-url="{{'products'|page}}" onclick="submitFilter()">Застосувати</button>
+            <a style="display: block;" href="{{'products'|page({size: '', price: ''})}}"><button>Скинути</button></a>
         </div>
 
 
@@ -78,7 +77,6 @@ function onStart()
     <div class="categories-content">
 
         {% for product in products %}
-
 
         <div class="card">
             <img src="{{product.preview.path}}" class="" alt="...">
@@ -110,6 +108,31 @@ function onStart()
 
 {% put scripts %}
 <script>
+    const count = 10000;
+    let dhrS;
+
+    if ("{{categories.price}}") {
+        let pr = "{{categories.price}}";
+        let splited = pr.split(',');
+        dhrS = new DualHRange('dhrS', { lower: Number(splited[0]).toFixed(2) / count, upper: Number(splited[1]).toFixed(2) / count, });
+        document.getElementById('x1').innerText = Number(splited[0]);
+        document.getElementById('x2').innerText = Number(splited[1]);
+    } else {
+        dhrS = new DualHRange('dhrS', { lower: 0, upper: 1 });
+        document.getElementById('x1').innerText = Math.ceil(dhrS.lower.toFixed(2) * count);
+        document.getElementById('x2').innerText = Math.ceil(dhrS.upper.toFixed(2) * count);
+    }
+
+    dhrS.addEventListener('update', (event) => {
+        document.getElementById('x1').innerText = Math.ceil(event.detail.lower.toFixed(2) * count);
+        document.getElementById('x2').innerText = Math.ceil(event.detail.upper.toFixed(2) * count);
+    });
+
+    function submitFilter() {
+        let dataUrl = "{{'products'|page({price: ''})}}";
+        window.location.href = dataUrl + '/' + $('#x1').text() + ',' + $('#x2').text();
+    }
+
     function navigateToPage(url) {
         window.location.href = url;
     }
