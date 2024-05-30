@@ -59,43 +59,71 @@ layout = "default"
 
         <div class="table-container">
             <table class="cart-table">
+
+                <!-- = = = Стовпці = = = -->
                 <tr>
                     <th>Товар</th>
                     <th>Розмір</th>
                     <th>Ціна</th>
                     <th>Кількість</th>
                     <th>Сума</th>
+                    <th></th>
                 </tr>
+
+                <!-- = = = Товар = = = -->
                 <tr>
                     <td>
-                        <div style="display: flex;">
+                        <div style="display: flex; align-items: center;">
                             <img class="cart-items-img" src=" {{ 'assets/images/jeans.jpg'|theme }}" alt="">
-                            <p>Джинси сині</p>
+                            <div>
+                                <p class="cart-items-title"><b> Джинси сині</b></p>
+                                <p class="cart-items-desc">Джинси сині подерті</p>
+                            </div>
                         </div>
                     </td>
-                    <td> S</td>
-                    <td>123 грн</td>
+                    <td ><p class="cart-items-size">S</p></td>
+                    <td><p class="cart-items-price">₴123</p></td>
                     <td>
                         <div class="cart-items-count">
-                            <i class='bx bx-minus' ></i>
-                            <label >000</label>
-                            <i class='bx bx-plus' ></i>
+                                <div class="elemnt change"><p>-</p></div>
+                                <div class="elemnt"><input class="count" type="text" value="30"></div>
+                                <div class="elemnt change"><p>+</p></div>
                         </div>
                     </td>
-                    <td> 246 грн</td>
+                    <td><p class="cart-items-sum">₴246</p></td>
+                    <td><i class='bx bxs-minus-circle'></i></td>
                 </tr>
 
+                <!-- = = = Товар = = = -->
                 <tr>
-                    <td><img class="cart-items-img" src=" {{ 'assets/images/jeans.jpg'|theme }}" alt="">
-                        Назв</td>
-                    <td> S</td>
-                    <td>123 грн</td>
-                    <td> 1</td>
-                    <td> 246 грн</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <img class="cart-items-img" src=" {{ 'assets/images/jeans.jpg'|theme }}" alt="">
+                            <div>
+                                <p class="cart-items-title"><b> Джинси сині</b></p>
+                                <p class="cart-items-desc">Джинси сині подерті</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td ><p class="cart-items-size">S</p></td>
+                    <td><p class="cart-items-price">₴123</p></td>
+                    <td>
+                        <div class="cart-items-count">
+                                <div class="elemnt change"><p>-</p></div>
+                                <div class="elemnt"><input class="count" type="text" value="30"></div>
+                                <div class="elemnt change"><p>+</p></div>
+                        </div>
+                    </td>
+                    <td><p class="cart-items-sum">₴246</p></td>
+                    <td><i class='bx bxs-minus-circle'></i></td>
                 </tr>
-            </table>
 
-            <p style="text-align: right; font-size: 22px;">Загальна сума: 4546 грн</p>
+            </table>
+            <div style="position: relative;">
+            <div class="summary">
+            <p >Загальна сума: <b>₴4546</b>  </p>
+        </div>
+        </div>
         </div>
         <hr>
 

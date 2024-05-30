@@ -1,7 +1,11 @@
+
+
 * {
     margin: 0;
     padding: 0;
+    
 }
+
 
 a {
     text-decoration: none;
@@ -20,11 +24,28 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100%;
+    background-image: url(/themes/store/assets/images/Pink_Watercolor_Aesthetic_Phone_Wallpaper.png);
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.897);
 }
 
 ul {
     display: flex;
     justify-content: space-between;
+}
+
+button{
+    width: 298px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid deeppink;
+    background-color: white;
+    padding: 0 10px;
+}
+
+button:hover{
+    background-color: pink ;
 }
 
 .main {
@@ -50,6 +71,7 @@ ul {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     /* grid-template-columns: repeat(5, 1fr); */
     justify-items: center;
+    
 }
 
 
@@ -88,7 +110,7 @@ ul {
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 
@@ -101,11 +123,15 @@ ul {
 }
 
 
-/* = = = = Categories-name = = = = */
+/* = = = = Products = = = = */
 
 .products-wrapper {
     position: relative;
     padding-top: 80px;
+    margin-bottom: 20px;
+    /* background-image: url(/themes/store/assets/images/Pink_Watercolor_Aesthetic_Phone_Wallpaper.png);
+    background-size: cover;
+    background-position: center; */
 }
 
 .categories-filter {
@@ -117,11 +143,14 @@ ul {
     position: absolute;
     position: fixed;
     top: 69px;
-    z-index: 999;
-    background-color: white;
+    z-index: 100;
+    background-color: white ;
     box-shadow: pink 1px 5px 5px;
     padding: 5px 40px;
+
+    transition: transform .5s;
 }
+
 
 .categories-filter p {
     margin: 0;
@@ -139,6 +168,16 @@ ul {
 .filter-price {
     text-align: center;
     min-width: 200px;
+}
+
+.filter-price .input-box{
+    margin: 5px 0;
+    border-radius: 20px;
+    height: 30px;
+    padding: 0 15px;
+    padding-right: 34px;
+    border: 1px solid deeppink;
+    width: 120px;
 }
 
 .price-text {
@@ -196,14 +235,14 @@ input::-webkit-inner-spin-button {
     width: 205px;
     height: auto;
     padding: 2px;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: .3s;
 }
 
 .products-wrapper .card:hover {
     transform: scale(1.05);
-    cursor: pointer;
-    background-color: pink;
+    /* cursor: pointer; */
+    /* background-color: pink; */
     /* background-color: var(--mblue); */
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
 
@@ -212,10 +251,13 @@ input::-webkit-inner-spin-button {
 .products-wrapper img {
     width: 200px;
     height: 300px;
-    border-radius: 4px;
+    border-radius: 9px;
 }
 
 .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 5px;
     text-align: center;
     position: relative;
@@ -223,7 +265,47 @@ input::-webkit-inner-spin-button {
 
 
 .card-body p {
-    margin: 0;
-    padding: 0;
+    margin:2px;
+    padding: 0 5px;
     font-size: 14px;
 }
+
+.products-button{
+    margin: 5px;
+    width: 180px;
+   
+    
+}
+
+/* = = = Range = = = */
+
+/* Стилі для елементу вводу типу "range" */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 15px;
+    background-color: transparent;
+    margin: 5px 0;
+  }
+  
+  /* Стилі для додаткових керованих точок (регуляторів) у браузері Google Chrome */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    border: 2px solid pink;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  /* Стилі для керованих точок при наведенні у браузері Google Chrome */
+  input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: deeppink;
+    border-color: deeppink;
+  }
+
+
+  

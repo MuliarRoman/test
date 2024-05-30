@@ -1,22 +1,35 @@
-title = "Login"
 url = "/login"
 layout = "default"
+title = "Login"
+
+[authentication]
+rememberMe = "never"
+twoFactorAuth = 1
+recoverPassword = 1
 ==
+{% if user != null %}
+    {% do redirect('/account') %}
+{% endif %}
+
 <div class="login-wrapper">
-    <form>
+    <form data-request="onLogin">
         <div class="login-form">
             <div class="">
                 <img src="themes/mytheme/assets/images/logo2.png" alt="" width="100px" height="100px">
             </div>
 
             <div class="input-box">
-                <input type="text" placeholder="Номер телефону " required>
-                <i class='bx bx-user'></i>
-            </div>      
+                <input type="text" placeholder="Ел. пошту example@gmail.com" name="email">
+                <i class='bx bx-envelope'></i>
+                <p data-validate-for="email"></p>
+                
+            </div>    
 
             <div class="input-box">
-                <input type="password" placeholder="Введіть пароль" required>
+                <input type="password" placeholder="Введіть пароль" name="password">
                 <i class='bx bx-lock-alt'></i>
+                <p data-validate-for="password"></p>
+                
             </div>
             <div class="remember">
                 <label for=""><input type="checkbox" name="" id="">Запам'ятати мене</label>

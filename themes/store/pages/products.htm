@@ -42,20 +42,28 @@ function onStart()
             <input type="checkbox" class="btn-check " id="btn-check-outlined_{{size.id}}" autocomplete="off" {% if
                 size.slug in categories.sizes %} checked {% endif %}
                 onclick="navigateToPage(`{{ 'products'|page({ size: slugs|join(',') })}}`)">
-            <label class="btn btn-outline-danger" for="btn-check-outlined_{{size.id}}">{{size.name}}</label>
+            <label class="btn btn-outline-danger " for="btn-check-outlined_{{size.id}}">{{size.name}}</label>
             {% endfor %}
         </div>
 
 
         <div class="filter-price">
-            <p>Ціна:</p>
+            <!-- <p>Ціна:</p>
             <div class="price-text">
                 <p>Від</p>
                 <input type="number">
                 <p>До</p>
                 <input type="number">
+            </div> -->
+            <p>Ціна:</p>
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <label for="priceRange1" class="form-label">Від:</label>
+                <input type="range" class="form-range" min="0" max="100" step="1" id="priceRange1" value="0">
+                <input class="input-box" type="text" value="0">
+                <label for="priceRange2" class="form-label">До:</label>
+                <input type="range" class="form-range" min="0" max="100" step="1" id="priceRange2" value="0">
+                <input class="input-box" type="text" value="0">
             </div>
-
         </div>
 
         <div class="filter-button">
@@ -70,16 +78,30 @@ function onStart()
     <div class="categories-content">
 
         {% for product in products %}
-        <a href="{{'product' |page({product:product.slug})}}">
-            <div class="card">
-                <img src="{{product.preview.path}}" class="" alt="...">
-                <div class="card-body">
-                    <p><b>{{product.title}}</b></p>
-                    <p>Ціна: {{product.price}} грн</p>
-                    <p>Розмір: {{product.size.name}}</p>
+
+
+        <div class="card">
+            <img src="{{product.preview.path}}" class="" alt="...">
+            <div class="card-body">
+                <div>
+                    <p style="font-size: 18px; text-align: start;"><b>{{product.title}}</b></p>
+                    <p style="font-size: 13px; text-align: start; max-height: 60px; overflow: hidden;">{{product.desc}}
+                    </p>
+
+                </div>
+                <div>
+                    <div style="display: flex; justify-content: space-between;">
+
+                        <p>{% for size in product.sizes %} {{size.name}} {% endfor %}</p>
+                        <p>{{product.price}} грн</p>
+                    </div>
+                    <a href="{{'product' |page({product:product.slug})}}">
+                        <button class="products-button">Переглянути</button>
+                    </a>
                 </div>
             </div>
-        </a>
+        </div>
+
         {% endfor %}
 
 

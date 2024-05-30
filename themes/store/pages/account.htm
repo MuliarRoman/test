@@ -1,7 +1,27 @@
-title = "Account"
 url = "/account"
 layout = "default"
+title = "Account"
+
+[account]
+
+[session]
+security = "all"
+checkToken = 0
 ==
+
+<?php 
+
+function onStart(){
+    if(!$this->page['user']){
+        Redirect::to('/');
+    }
+}
+?>
+==
+
+{% if user == null %}
+{% do redirect('/') %}
+{% endif %}
 
 <div class="account-wrapper">
     <div class="page-name">
@@ -9,56 +29,47 @@ layout = "default"
         <hr>
     </div>
     <div class="flex-cont">
-    <div class="account-menu">
-        <ul>
-            <li><a href="">Профіль</a></li>
-            <li><a href="">Історія покупок</a></li>
-            <li><a href="">Кошик</a></li>
-            <li><a href="">Каталог</a></li>
-        </ul>
+        <div class="account-menu">
+            <ul>
+                <li><a href="">Профіль</a></li>
+                <li><a href="">Історія покупок</a></li>
+                <li><a href="">Кошик</a></li>
+                <li><a href="">Каталог</a></li>
+            </ul>
 
-        <hr>
-        <button class="button-cart" type="submit">Вихід</button>
-    </div>
-    <div class="account-container">
-    <form>
-        <div class="input-box">
-            <p>Прізвище</p>
-            <input type="text" placeholder="Введіть прізвище">
-            
+            <hr>
+            <button class="button-cart" type="button" data-request="onLogout">Вихід</button>
         </div>
-        <div class="input-box">
-            <p>Ім'я</p>
-            <input type="text" placeholder="Введіть імя">
-        </div>
-        <div class="input-box">
-            <p>По батькові</p>
-            <input type="text" placeholder="Введіть по батькові">
-        </div>
-        <div class="input-box">
-            <p>Номер телефону</p>
-            <input type="number" placeholder="Введіть номер телефону">
-        </div>
-        <div class="input-box">
-            <p>Адреса</p>
-            <input type="text" placeholder="Введіть адресу доставки">
-        </div>
-        <div class="input-box">
-            <p>Електрона пошта</p>
-            <input type="email" placeholder="Введіть Ел. пошту" value="">
-        </div>
-        <!-- <div class="input-box bank">
-            <p>Данні карти</p>
-            <input type="text" placeholder="Введіть номер карти">
-            <div class=" bank-card" >
-                <input type="text" placeholder="Введіть дату" width="100px">
-                <input type="text" placeholder="Введіть CSV" width="100px ">
-            </div>
-        </div> -->
+        <div class="account-container">
+            <form data-request="onUpdateProfile">
+
+                <div class="input-box">
+                    <p>Прізвище</p>
+                    <input type="text" placeholder="Введіть прізвище" name="last_name" value="{{user.last_name}}">
+
+                </div>
+
+                <div class="input-box">
+                    <p>Ім'я</p>
+                    <input type="text" placeholder="Введіть імя" name="first_name" value="{{user.first_name}}">
+                </div>
+
+                <div class="input-box">
+                    <p>Електрона пошта</p>
+                    <input type="email" placeholder="Введіть Ел. пошту" name="email" value="{{user.email}}">
+                </div>
+
+                <div class="input-box">
+                    <p>Номер телефону</p>
+                    <input type="number" placeholder="Введіть Номер тел." name="number" value="{{user.number}}">
+                </div>
+                
         <button class="button-cart" type="submit">Зберегти зміни</button>
-        
+</form>
+
+        </div>
+
     </div>
-</div>
 
     <hr>
     <br>
@@ -88,9 +99,9 @@ layout = "default"
                 <td>123 грн</td>
                 <td>
                     <div class="cart-items-count">
-                    
-                        <label >000</label>
-                        
+
+                        <label>000</label>
+
                     </div>
                 </td>
                 <td> 246 грн</td>

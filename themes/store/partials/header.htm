@@ -6,14 +6,20 @@
                 <a href="{{'home' |page}}">Головна</a>
                 <a href="{{'categories' |page}}">Категорії</a>
                 <a href="{{'about' |page}}">Про нас</a>
+                <a href="{{'about' |page}}">Для покупців</a>
+                {% if user == null %}
                 <a href="{{'login' |page}}">Вхід </a>
+                {% endif %}
             </ul>
         </nav>
     </div>
 
     <div class="nav-btn">
+        
         <a href="{{'cart' |page}}"><div class="cart" id="notify-cart-number">{% partial 'notify-cart-number' %}</div></a>
+        {% if user != null %}
         <a href="{{'account' |page}}"><div class="account"></div></a>
+        {% endif %}
     </div>
 
 

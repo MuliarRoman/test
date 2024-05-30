@@ -1,49 +1,61 @@
-title = "Register"
 url = "/register"
 layout = "default"
+title = "Register"
+
+[registration]
 ==
 
+{% if user == null %}
+    {% do redirect('/account') %}
+{% endif %}
 
 <div class="register-wrapper">
 
 
-    <form>
+    <form data-request="onRegister" data-request-validate>
         <div class="register-form">
             <img src="themes/mytheme/assets/images/logo2.png" alt="" width="100px" height="100px">
 
 
             <div class="input-box">
-                <input type="text" placeholder="Введіть прізвище">
+                <input type="text" placeholder="Введіть прізвище" name="last_name">
+                <p data-validate-for="surname"></p>
                 <i class='bx bx-user'></i>
             </div>
 
 
             <div class="input-box">
-                <input type="text" placeholder="Введіть ім'я">
+                <input type="text" placeholder="Введіть ім'я" name="first_name">
+                <p data-validate-for="name"></p>
                 <i class='bx bx-user'></i>
             </div>
 
             <div class="input-box">
-                <input type="password" placeholder="Введіть пароль">
-                <i class='bx bx-lock-alt' ></i>
+                <input type="text" placeholder="Ел. пошту example@gmail.com" name="email">
+                <p data-validate-for="email"></p>
+                <i class='bx bx-envelope'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" placeholder="Введіть пароль" name="password">
+                <p data-validate-for="password"></p>
+                <i class='bx bx-lock-alt'></i>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Повторіть пароль">
-                <i class='bx bx-lock-alt' ></i>
+                <input type="password" placeholder="Повторіть пароль" name="password_confirmation">
+                <p data-validate-for="password_confirmation"></p>
+                <i class='bx bx-lock-alt'></i>
             </div>
 
 
-            <div class="input-box">
+            <!-- <div class="input-box">
                 <input type="tel" name="" id="" placeholder="Номер телефону 098-765-43-21">
                 <i class='bx bx-phone'></i>
-            </div>
+            </div> -->
 
-            <div class="input-box">
-                <input type="text" placeholder="Ел. пошту example@gmail.com">
-                <i class='bx bx-envelope' ></i>
-            </div>
 
-            <button class="register-button" type="submit">Реєстрація</button>
+
+            <button class="register-button" type="submit" data-attach-loading>Реєстрація</button>
         </div>
     </form>
 </div>

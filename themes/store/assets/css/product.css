@@ -1,52 +1,37 @@
+.product-wrapper{
+    margin: 20px;
+    margin-top: 0;
+}
+
 .prod-container{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    padding: 0 30px;
-    justify-items: center;
-    
-    
-
-}
-
-.product-photo{
-   
-    text-align: center;
     display: flex;
-    
+    padding: 0 150px;
+    gap: 40px;
 }
 
-.main-photo{
-    height: 480px;
+
+
+
+.product-info{
+text-align: left;
+background-color: rgba(255, 255, 255, 0.6);
+position: relative;
+
 }
 
-.main-photo img{
-    width: 320px;
-    height: 480px;
-    margin: 0 10px;
-    
+.product-buy{
+    position: absolute;
+    bottom: 0;
 }
 
-.sub-photo {
-    display: flex;
-    flex-direction: column;
-    height: 480px;
-    
+.product-buy p{
+    margin: 10px;
+    padding: 0;
 }
 
-.sub-photo i{
-    font-size: 20px;
-    border: 1px solid black;
-    cursor: pointer;
-}
-
-.sub-photo i :hover{
-
-    cursor: pointer;
-}
-
-.sub-photo img{
-    width: 90px;   
-    margin: auto 5px;
+.product-title{
+    color: deeppink;
+    font-size: 26px;
 }
 
 .product-button {
@@ -56,8 +41,90 @@
     border: 1px solid deeppink;
     background-color: white;
 
+    margin-top:2px;
+
 }
 
 .product-button:hover {
     background-color: pink;
 }
+
+/* = = = Slider = = = */
+
+.product-photo {
+    text-align: center;
+    display: flex;
+}
+
+.main-photo {
+    height: 480px;
+}
+
+.main-photo img {
+    width: 320px;
+    height: 480px;
+    margin: 0 10px;
+}
+
+.sub-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 480px;
+    position: relative;
+}
+
+.sub-photo i {
+    font-size: 20px;
+    background-color: pink;
+    cursor: pointer;
+    width: 90px;
+    text-align: center;
+    
+}
+
+#up-btn{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#down-btn{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.sub-photo i:hover {
+    cursor: pointer;
+    background-color: rgb(254, 158, 172);
+}
+
+.slider-container {
+    height: 435px; 
+    overflow: hidden;
+    width: 100px;
+}
+
+.slider {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+}
+
+.slider img {
+    width: 90px;   
+    margin: 5px auto;
+}
+
+
+
+/* = = = = = = = */
+
+
+.form-check-label{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+
+
