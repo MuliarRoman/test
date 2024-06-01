@@ -78,6 +78,10 @@ button:hover {
   
 } */
 
+.pagination-wrapper {
+    padding: 10px 40px;
+}
+
 .categories-wrapper .card img {
     height: 300px;
     width: 200px;

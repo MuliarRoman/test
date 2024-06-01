@@ -44,6 +44,7 @@ class Products extends Model
     public function scopeListFrontEnd($query, $options = [])
     {
         extract(array_merge([
+            'page' => 1,
             'sizes' => '',
             'category' => '',
             'price' => '',
@@ -52,8 +53,8 @@ class Products extends Model
         $query->with('sizes');
         $query->with('category');
 
-        if ($sizes || $category || $price) {
-            $query->where(function ($query) use ($sizes, $category, $price) {
+        if ($sizes || $category || $price || $page) {
+            $query->where(function ($query) use ($sizes, $category, $price, $page) {
                 // if ($size) {
                 //     $query->where(function ($query) use ($search) {
                 //         $query->where('name', 'like', '%' . $search . '%')
@@ -98,6 +99,6 @@ class Products extends Model
             });
         }
 
-        return $query->get();
+        return $query->paginate(15, $page);
     }
 }
