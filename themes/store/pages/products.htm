@@ -9,17 +9,17 @@ use Roman\Store\Models\Products;
 
 function onStart() 
 {
+    $page = Input::get('page', 1);
     $category = $this->param('category');
     $size = $this->param('size');
     $price = $this->param('price');
 
-    $data = ['category' => $category, 'sizes' => explode(',', $size), 'price' => $price];
+    $data = ['category' => $category, 'sizes' => explode(',', $size), 'price' => $price, 'page' => $page];
     $this['categories'] = $data;
 
 
     $this["products"] = Products::listFrontEnd($data);
     $this["sizes"] = Sizes::all();
-
 
 }
 ?>
@@ -104,6 +104,11 @@ function onStart()
 
 
     </div>
+
+    <div class="pagination-wrapper">
+        {{ pager(products) }}
+    </div>
+
 </div>
 
 {% put scripts %}
