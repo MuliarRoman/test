@@ -2,6 +2,7 @@
 
 namespace Roman\Store;
 
+use Twig\TwigFilter;
 use System\Classes\PluginBase;
 
 /**
@@ -9,11 +10,13 @@ use System\Classes\PluginBase;
  */
 class Plugin extends PluginBase
 {
+    
     /**
      * register method, called when the plugin is first registered.
      */
     public function register()
     {
+        //$this->app['view']->getEngineResolver()->resolve('twig')->getCompiler()->addExtension(new \Roman\Store\TwigExtensions());
     }
 
     /**
@@ -21,6 +24,10 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
+        // Add a custom filter to Twig
+        \App::make('twig.environment')->addFilter(new TwigFilter('json_decode', function ($json) {
+            return json_decode($json, true);
+        }));
     }
 
     /**
@@ -38,5 +45,19 @@ class Plugin extends PluginBase
      */
     public function registerSettings()
     {
+    }
+
+    public function registerMarkupTags()
+    {
+        return [
+            'filters' => [
+                'json_decode' => [$this, 'jsonDecodeFilter'],
+            ],
+        ];
+    }
+
+    public function jsonDecodeFilter($string, $assoc = true)
+    {
+        return json_decode($string, $assoc);
     }
 }

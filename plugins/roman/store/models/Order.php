@@ -22,8 +22,13 @@ class Order extends Model
      */
     public $rules = [];
 
+    protected $fillable = [
+        'cart', // Add other attributes as needed
+    ];
+
     public $casts = [
         'cart' => 'array'
+        
     ];
 
     public $belongsTo = [

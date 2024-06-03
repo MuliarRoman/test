@@ -1,5 +1,7 @@
 <?php
-$cart = $this->vars['formModel']->cart;
+
+$cart = json_decode($this->vars['formModel']->cart);
+
 
 if (!empty($cart)) {
     echo "<table>
@@ -17,18 +19,18 @@ if (!empty($cart)) {
     $summaryPrice = 0;
     foreach ($cart as $item) {
         echo "<tr>
-                <td>{$item['name']}</td>
+                <td>{$item->name}</td>
                 <td>";
 
-        if (isset($item['src'])) {
-            echo "<img src='{$item['src']}' alt='Preview'>";
+        if (isset($item->src)) {
+            echo "<img src='{$item->src}' alt='Preview' width=100>";
         }
 
         echo "</td>
-                <td>₴{$item['price']}</td>
-                <td>{$item['count']}</td>";
+                <td>₴{$item->price}</td>
+                <td>{$item->count}</td>";
 
-        $totalPrice = $item['price'] * $item['count'];
+        $totalPrice = $item->price * $item->count;
         echo "<td>₴{$totalPrice}</td>";
 
         $summaryPrice += $totalPrice;

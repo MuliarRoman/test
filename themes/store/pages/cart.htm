@@ -23,8 +23,10 @@ layout = "default"
                 <form data-request="onSaveOrder" data-request-validate data-request-flash="success"
                     data-request-message="Пітдвердження..."
                     data-request-update="'table-cart': '#cart-table', 'notify-cart-number': '#notify-cart-number'">
+                    {% if user != null %}
                     <input style="display: none;" type="text" name="user_id" placeholder="Введіть прізвище"
                         value="{{user.id}}" required>
+                    {% endif %}
                     <div class="input-box">
                         <p>Прізвище</p>
                         <input type="text" name="last_name" placeholder="Введіть прізвище" value="{{user.last_name}}"
