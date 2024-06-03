@@ -15,6 +15,7 @@ function onStart(){
     if(!$this->page['user']){
         Redirect::to('/');
     }
+    
 }
 ?>
 ==
@@ -105,7 +106,7 @@ function onStart(){
                     <p>{{order.phone}}</p>
                 </td>
                 <td>
-                    <p>{{order.cart|reduce((prev, next, k) => prev + next.price * next.count, 0)}}uah</p>
+                    <p>{{order.cart|json_decode|reduce((prev, next, k) => prev + next.price * next.count, 0)}}uah</p>
                 </td>
                 <td>
                     <table>
@@ -114,7 +115,7 @@ function onStart(){
                         <th>Ціна</th>
                         <th>Кількість</th>
                         <th>Сума</th>
-                        {% for oc in order.cart %}
+                        {% for oc in order.cart|json_decode %}
                         <tr>
                             <td>
                                 <div style="display: flex;align-items: center;">
