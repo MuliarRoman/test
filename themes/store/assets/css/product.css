@@ -16,12 +16,17 @@
 text-align: left;
 background-color: rgba(255, 255, 255, 0.6);
 position: relative;
+min-height: 480px;
+padding: 10px 20px;
+border-radius: 20px;
 
 }
 
 .product-buy{
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
+    left: 5px;
+    padding: 0 20px;
 }
 
 .product-buy p{
@@ -127,4 +132,10 @@ position: relative;
 }
 
 
-
+@media (max-width: 1100px) {
+    .prod-container{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+}

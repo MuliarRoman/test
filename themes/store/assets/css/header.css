@@ -80,3 +80,96 @@ nav a:hover {
     background-image: url(/themes/store/assets/images/login-active2.png);
     cursor: pointer;
 }
+
+.burg-menu button {
+    display: none;
+    background-color: pink;
+    width: 60px;
+    margin: 15px 20px;
+    left: 0;
+    border: 1px solid deeppink;
+    position: relative;
+    border-radius: 20px;
+}
+
+.burg-menu .btn-close{
+    border-radius: 20px;
+}
+
+.burg-menu button:hover {
+    background-color: rgb(255, 174, 187);
+}
+
+.burg-menu button span {
+    position: absolute;
+    height: 2px;
+    width: 70%;
+    left: 15%;
+    top: 50%;
+    background: white;
+    transform: translateY(-50%);
+}
+
+.burg-menu button span::after, 
+.burg-menu button span::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    left: 0;
+    background: white;
+}
+
+.burg-menu button span::before {
+    top: -8px;
+}
+
+.burg-menu button span::after {
+    bottom: -8px;
+}
+
+
+.offcanvas-body{
+    margin: 0;
+    padding: 0;
+}
+
+.offcanvas-body ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.offcanvas-body a {
+    height: 40px ;
+    width: 100%;
+    border-bottom: deeppink 1px solid;
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+    
+    
+
+}
+
+.offcanvas-body a:hover {
+   
+    background-color: rgb(253, 239, 239);
+
+}
+    
+
+
+@media (max-width: 700px) {
+    .navigation {
+        display: none;
+    }
+
+    .burg-menu button{
+        display: block;
+    }
+}

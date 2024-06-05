@@ -31,51 +31,73 @@ function onStart(){
     </div>
     <div class="flex-cont">
         <div class="account-menu">
-            <ul>
-                <li><a href="">Профіль</a></li>
-                <li><a href="">Історія покупок</a></li>
-                <li><a href="">Кошик</a></li>
-                <li><a href="">Каталог</a></li>
-            </ul>
-
-            <hr>
-            <button class="button-cart" type="button" data-request="onLogout">Вихід</button>
-        </div>
-        <div class="account-container">
-            <form data-request="onUpdateProfile">
-
-                <div class="input-box">
-                    <p>Прізвище</p>
-                    <input type="text" placeholder="Введіть прізвище" name="last_name" value="{{user.last_name}}">
-
-                </div>
-
-                <div class="input-box">
-                    <p>Ім'я</p>
-                    <input type="text" placeholder="Введіть імя" name="first_name" value="{{user.first_name}}">
-                </div>
-
-                <div class="input-box">
-                    <p>Електрона пошта</p>
-                    <input type="email" placeholder="Введіть Ел. пошту" name="email" value="{{user.email}}">
-                </div>
-
-                <div class="input-box">
-                    <p>Номер телефону</p>
-                    <input type="number" placeholder="Введіть Номер тел." name="number" value="{{user.number}}">
-                </div>
-
-                <button class="button-cart" type="submit">Зберегти зміни</button>
-            </form>
+            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
+                    aria-selected="true">Профіль</button>
+                <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
+                    aria-selected="false">Налаштування</button>
+                <button class="nav-link" id="v-pills-exit-tab" data-bs-toggle="pill" data-bs-target="#v-pills-exit"
+                    type="button" role="tab" aria-controls="v-pills-exit" aria-selected="false">Вихід</button>
+            </div>
 
         </div>
+        <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel"
+                aria-labelledby="v-pills-profile-tab" tabindex="0">
+                <p>Привіт, {{user.last_name}} {{user.first_name}} </p>
+                <p>Вітаємо на нашій сторінці</p>
+                <p>Тут ви можете перглянути <span><a href="#history" style="color: blue;">історію покупок</a></span>, та змінити налаштування профілю</p>
+            </div>
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"
+                tabindex="0">
+                <div class="account-container">
+                    <form data-request="onUpdateProfile">
+
+                        <div class="input-box">
+                            <p>Прізвище</p>
+                            <input type="text" placeholder="Введіть прізвище" name="last_name"
+                                value="{{user.last_name}}">
+
+                        </div>
+
+                        <div class="input-box">
+                            <p>Ім'я</p>
+                            <input type="text" placeholder="Введіть імя" name="first_name" value="{{user.first_name}}">
+                        </div>
+
+                        <div class="input-box">
+                            <p>Електрона пошта</p>
+                            <input type="email" placeholder="Введіть Ел. пошту" name="email" value="{{user.email}}">
+                        </div>
+
+                        <div class="input-box">
+                            <p>Номер телефону</p>
+                            <input type="number" placeholder="Введіть Номер тел." name="number" value="{{user.number}}">
+                        </div>
+
+                        <button class="button-cart" type="submit">Зберегти зміни</button>
+
+                    </form>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-exit" role="tabpanel" aria-labelledby="v-pills-exit-tab"
+                tabindex="0">
+                <p>Впевнені, що хочете вийти?</p>
+                <p>Якщо так то вам сюда ↓</p>
+                <button class="button-cart" type="button" data-request="onLogout">Вихід</button>
+            </div>
+        </div>
+
 
     </div>
 
     <hr>
-    <br>
+    <br id="history">
 
-    <div class="page-name">
+    <div class="page-name margin" >
         <p>Історія покупок</p>
         <hr>
     </div>
@@ -93,20 +115,20 @@ function onStart(){
             </tr>
             {% for order in user.orders %}
             <tr>
-                <td>
+                <td style="border-right: solid black 1px; text-align: center;">
                     <p>000{{order.id}}</p>
                 </td>
-                <td>
+                <td style="border-right: solid black 1px;">
                     <p>{{order.created_at}}</p>
                 </td>
-                <td>
+                <td style="border-right: solid black 1px;">
                     <p>{{order.address}}</p>
                 </td>
-                <td>
+                <td style="border-right: solid black 1px;">
                     <p>{{order.phone}}</p>
                 </td>
-                <td>
-                    <p>{{order.cart|json_decode|reduce((prev, next, k) => prev + next.price * next.count, 0)}}uah</p>
+                <td style="border-right: solid black 1px;">
+                    <p>{{order.cart|json_decode|reduce((prev, next, k) => prev + next.price * next.count, 0)}} грн</p>
                 </td>
                 <td>
                     <table>

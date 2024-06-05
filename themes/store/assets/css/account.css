@@ -22,7 +22,9 @@
 
 .flex-cont{
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    gap: 100px;
+    min-height: 400px;
 }
 
 .flex-cont a{
@@ -42,10 +44,41 @@
 .history{
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 .history .cart-table{
-    width: 70%;
+                  
+    width: 100%;
     display: flex;
     justify-content: center ;
     align-items: center;
 }
+
+.cart-table tr td:first-child{
+    min-width: 50px !important;
+    
+}
+
+.margin{
+   margin-top: 70px; 
+}
+
+.nav-link {
+    
+    color: black;
+    border-radius: 20px !important;
+}
+
+.nav-link:hover {
+    /* background-color: rgb(254, 175, 188) !important; */
+    color: white !important;
+    
+}
+
+.account-menu .active{
+    background-color: deeppink !important;
+}
+
+
+
+

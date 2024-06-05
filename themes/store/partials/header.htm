@@ -14,6 +14,45 @@
         </nav>
     </div>
 
+    <div class="burg-menu">
+        <button class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+            <span></span>
+          </button>
+          
+          <div class="offcanvas offcanvas-start" data-bs-backdrop="#offcanvasWithBothOptions" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptions">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="staticBackdropLabel">
+                <img src="/themes/store/assets/images/logo2.png" alt="logo" width="70px" height="70px">
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <nav>
+                    <ul>
+                        <a href="{{'home' |page}}">Головна</a>
+                        <a href="{{'categories' |page}}">Категорії</a>
+                        <a href="{{'about' |page}}">Про нас</a>
+                        <a href="{{'about' |page}}">Для покупців</a>
+                        {% if user == null %}
+                        <a href="{{'login' |page}}">Вхід </a>
+                        {% endif %}
+
+                        <a href="{{'cart' |page}}">
+                            Корзина
+                        </a>
+                        {% if user != null %}
+                        <a href="{{'account' |page}}">
+                            Профіль
+                        </a>
+                        {% endif %}
+                    </ul>
+                </nav>
+
+            </div>
+          </div>
+        
+    </div>
+
     <div class="nav-btn">
 
         <a href="{{'cart' |page}}">

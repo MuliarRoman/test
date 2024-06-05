@@ -1,0 +1,26 @@
+.showcase {
+    min-height: 500px;
+    text-align: center;
+    
+}
+.showcase h1 {
+    margin-top: 100px;
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+.showcase p {
+    font-size: 20px;
+}
+.about-wrapper section {
+    padding: 20px 0 20px 0;
+}
+.about-content {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.map{
+    margin: 40px 0;
+}
