@@ -1,5 +1,5 @@
 :root {
-    --dark-fon: #4a4a4a;
+    --dark-fon: #3c3c3c;
     --dark-items: #303030;
     --dark-active: rgb(138, 138, 138);
 }
@@ -52,8 +52,16 @@ nav a {
     color: white;
 }
 
+
+.img-logo{
+    background-image: url(/themes/store/assets/images/dark-logo.png);  
+}
 .cart {
     background-image: url(/themes/store/assets/images/dark-cart.png);
+}
+
+.icon-themes{
+    background-image: url(/themes/store/assets/images/sun.png);   
 }
 
 .cart:hover {
@@ -68,10 +76,20 @@ nav a {
     background-image: url(/themes/store/assets/images/dark-login-active2.png);
 }
 
+/* burg-menu */
+.offcanvas{
+    background-color: var(--dark-items);
+}
+
+
 /* footer */
 footer {
     background: var(--dark-items);
     color: white;
+}
+
+.footer-logo{
+    background-image: url(/themes/store/assets/images/dark-logo.png);   
 }
 
 /* Categories */
@@ -96,12 +114,8 @@ footer {
 
 /* cart */
 .cart-table {
-
     background-color: var(--dark-items);
-
-
 }
-
 
 .summary {
     background-color: deeppink;
@@ -111,4 +125,29 @@ tr,
 th,
 td {
     color: white;
+}
+
+.count{
+   color: white;
+}
+/* Login */
+
+.login-form {
+    border: solid deeppink 2px;
+    background:var(--dark-items);
+}
+
+.login-form label {
+    color: white;
+}
+
+.login-img{
+    background-image: url(/themes/store/assets/images/dark-logo.png);
+}
+
+/* Register */
+
+.register-form {
+    border: solid deeppink 2px;
+    background:var(--dark-items);
 }

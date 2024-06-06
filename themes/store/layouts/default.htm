@@ -21,15 +21,15 @@ checkToken = 0
 
     <!-- = = CSS = = -->
     <link href="{{ 'assets/css/style.css'|theme }}?v=1.0.1.30" rel="stylesheet">
-    <link href="{{ 'assets/css/footer.css'|theme }}?v=1.0.0.5" rel="stylesheet">
-    <link href="{{ 'assets/css/header.css'|theme }}?v=1.0.0.12" rel="stylesheet">
-    <link href="{{ 'assets/css/login.css'|theme }}?v=1.0.0.6" rel="stylesheet">
-    <link href="{{ 'assets/css/product.css'|theme }}?v=1.0.1.6" rel="stylesheet">
+    <link href="{{ 'assets/css/footer.css'|theme }}?v=1.0.0.6" rel="stylesheet">
+    <link href="{{ 'assets/css/header.css'|theme }}?v=1.0.0.17" rel="stylesheet">
+    <link href="{{ 'assets/css/login.css'|theme }}?v=1.0.0.8" rel="stylesheet">
+    <link href="{{ 'assets/css/product.css'|theme }}?v=1.0.1.7" rel="stylesheet">
     <link href="{{ 'assets/css/cart.css'|theme }}?v=1.0.0.12" rel="stylesheet">
-    <link href="{{ 'assets/css/account.css'|theme }}?v=1.0.0.2" rel="stylesheet">
+    <link href="{{ 'assets/css/account.css'|theme }}?v=1.0.0.3" rel="stylesheet">
     <link href="{{ 'assets/css/home.css'|theme }}?v=1.0.0.1" rel="stylesheet">
-    <link href="{{ 'assets/css/about.css'|theme }}?v=1.0.0.2" rel="stylesheet">
-    <link href="{{ 'assets/css/dark-theme.css'|theme }}?v=1.0.0.4" rel="stylesheet">
+    <link href="{{ 'assets/css/about.css'|theme }}?v=1.0.0.3" rel="stylesheet">
+    <link href="" rel="stylesheet" id="theme">
 
     <!-- = = JS = = -->
     <!-- Fonts -->
@@ -80,7 +80,7 @@ checkToken = 0
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-        <!-- = = = Skroll = = = -->
+    <!-- = = = Skroll = = = -->
     <script>
         let lastScrollTop = 0;
         window.addEventListener('scroll', function () {
@@ -161,12 +161,53 @@ checkToken = 0
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('#card-number').mask('0000-0000-0000-0000');
             $('#phone-number').mask('+38(000)-000-00-00');
             $('#expiry-date').mask('00/00');
         });
     </script>
+
+    <!-- = = = Themes = = = -->
+<script>
+    const themeSwitch = document.getElementById('themeSwitch');
+    const theme = document.getElementById('theme');
+    let isDarkTheme = false;
+
+    // Встановлення стану перемикача з локального сховища після завантаження всіх елементів DOM
+    document.addEventListener('DOMContentLoaded', function () {
+        const isDarkTheme = localStorage.getItem('isDarkTheme');
+        if (isDarkTheme === 'true') {
+            themeSwitch.checked = true;
+            applyDarkTheme();
+        } else {
+            themeSwitch.checked = false;
+        }
+    });
+
+    // Зберігання стану перемикача в локальному сховищі
+    themeSwitch.addEventListener('change', function () {
+        localStorage.setItem('isDarkTheme', this.checked);
+        if (this.checked) {
+            applyDarkTheme();
+        } else {
+            removeDarkTheme();
+        }
+    }); 
+
+    // Функція для застосування стилю темної теми
+    function applyDarkTheme() {
+        theme.href = "{{ 'assets/css/dark-theme.css'|theme }}?v=1.0.0.7";
+        isDarkTheme = true;
+    }
+
+    // Функція для видалення стилю темної теми
+    function removeDarkTheme() {
+        theme.removeAttribute('href');
+        isDarkTheme = false;
+    }
+</script>
+
 
     {% flash %}
     <p data-control="flash-message" data-type="{{ type }}" data-interval="5">

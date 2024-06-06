@@ -1,9 +1,8 @@
 
 
 footer{
-    
-    
-    height: 200px;
+
+    min-height: 200px;
     width: 100%;
     /* background: linear-gradient(white, var(--mblue), var(--mgreen)); */
     background: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(255, 192, 203, 0.8) 80% ) ;
@@ -18,8 +17,12 @@ footer{
 }
 
 .footer-logo{
-    
+    width: 150px;
+    height: 150px;
     padding: 25px 20px;
+    background-image: url(/themes/store/assets/images/logo2.png);
+    background-size: cover;
+    
     
 }
 

@@ -37,6 +37,68 @@ nav a:hover {
     align-self: center;
 }
 
+.img-logo{
+    width: 70px;
+    height: 70px;
+    background-image: url(/themes/store/assets/images/logo2.png);
+    background-size: cover;
+}
+
+.themes{
+    margin: 27px 0;
+    position: relative;
+    
+}
+
+.icon-themes{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-image: url(/themes/store/assets/images/moon2.png);
+    background-size: cover;
+    top: 0;
+    left: -30px;
+}
+
+
+.form-check-input{
+    border: deeppink 1px solid;
+}
+
+.form-check-input:hover{
+    cursor: pointer;
+}
+
+.form-switch .form-check-input:focus:not(:checked){
+    --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e")!important ;
+
+}
+
+.form-check-input:focus{
+
+    box-shadow: none;
+    border: deeppink 1px solid;
+    
+}
+
+.form-check-input:checked {
+    background-color: deeppink;
+    border: deeppink;
+    box-shadow: none;
+    
+  }
+
+  /* Зміна кольору кружечка при не виборі */
+  .form-check-input:checked {
+    background-color: deeppink;
+  }
+  .form-check-input:checked + .form-check-label::before {
+    background-color: transparent;
+  }
+  .form-check-input:not(:checked) + .form-check-label::before {
+    border-color: deeppink;
+  }
+
 .cart {
     position: relative;
     height: 40px;
@@ -77,7 +139,7 @@ nav a:hover {
 }
 
 .account:hover {
-    background-image: url(/themes/store/assets/images/login-active2.png);
+    background-image: url(/themes/store/assets/images/dark-login-active2.png);
     cursor: pointer;
 }
 
