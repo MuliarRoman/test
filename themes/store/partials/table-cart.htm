@@ -33,7 +33,7 @@
             <td>
                 <div class="cart-items-count">
                     <div class="elemnt change">
-                        <button style="background: transparent; border: none;" type="button"
+                        <button style="background-color: transparent; border-radius: 0; border: none; height: 100%;" type="button"
                             data-request="onDecrementProduct"
                             data-request-update="'table-cart': '#cart-table', 'notify-cart-number': '#notify-cart-number'"
                             data-request-data="product_id: '{{ c.id }}'" data-request-flash="success"
@@ -41,7 +41,7 @@
                     </div>
                     <div class="elemnt"><input disabled class="count" type="text" value="{{ c.count }}"></div>
                     <div class="elemnt change">
-                        <button style="background: transparent; border: none;" type="button"
+                        <button style="background-color: transparent; border-radius: 0; border: none; height: 100%;" type="button"
                             data-request="onIncrementProduct"
                             data-request-update="'table-cart': '#cart-table', 'notify-cart-number': '#notify-cart-number'"
                             data-request-data="product_id: '{{ c.id }}'" data-request-flash="success"

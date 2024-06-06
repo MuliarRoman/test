@@ -50,3 +50,24 @@ footer{
     height: 30px;
     margin: 0 5px;
 }
+
+@media (max-width: 700px) {
+    .footer-wrapper{
+        display: flex;
+        flex-direction: column;
+        margin: 0 20px;
+        text-align: center;
+        align-items: center;
+        
+    }
+
+    footer{
+    
+    
+        height: auto;
+        width: 100%;
+        /* background: linear-gradient(white, var(--mblue), var(--mgreen)); */
+        background: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(255, 192, 203, 0.8) 80% ) ;
+        
+    }
+} 

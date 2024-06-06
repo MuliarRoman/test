@@ -1,0 +1,114 @@
+:root {
+    --dark-fon: #4a4a4a;
+    --dark-items: #303030;
+    --dark-active: rgb(138, 138, 138);
+}
+
+/* style */
+button {
+    background-color: var(--dark-active) !important;
+    color: white;
+}
+
+button:hover {
+    background-color: deeppink !important;
+}
+
+input {
+    background-color: var(--dark-active);
+}
+
+input::placeholder {
+    color: white;
+}
+
+.card {
+    background-color: var(--dark-items);
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+
+/* body */
+body {
+    background: none;
+    background-image: none;
+    background-color: var(--dark-fon);
+}
+
+hr {
+    border: white solid 1px;
+}
+
+/* header */
+header {
+    background-color: var(--dark-items);
+}
+
+nav a {
+    color: white;
+}
+
+.cart {
+    background-image: url(/themes/store/assets/images/dark-cart.png);
+}
+
+.cart:hover {
+    background-image: url(/themes/store/assets/images/cart-active.png);
+}
+
+.account {
+    background-image: url(/themes/store/assets/images/dark-login2.png);
+}
+
+.account:hover {
+    background-image: url(/themes/store/assets/images/dark-login-active2.png);
+}
+
+/* footer */
+footer {
+    background: var(--dark-items);
+    color: white;
+}
+
+/* Categories */
+.categories-name {
+    background-color: var(--dark-active);
+    opacity: 0.9;
+}
+
+/* Products */
+.categories-filter {
+
+    border: solid 1px gray;
+
+    background-color: var(--dark-items);
+    color: white;
+}
+
+/* Product */
+.product-info {
+    background-color: var(--dark-items);
+}
+
+/* cart */
+.cart-table {
+
+    background-color: var(--dark-items);
+
+
+}
+
+
+.summary {
+    background-color: deeppink;
+}
+
+tr,
+th,
+td {
+    color: white;
+}
