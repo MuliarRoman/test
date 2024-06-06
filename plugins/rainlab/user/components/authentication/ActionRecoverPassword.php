@@ -1,4 +1,6 @@
-<?php namespace RainLab\User\Components\Authentication;
+<?php
+
+namespace RainLab\User\Components\Authentication;
 
 use App;
 use Cms;
@@ -44,11 +46,11 @@ trait ActionRecoverPassword
      */
     protected function checkRecoveryPasswordRedirect()
     {
-        if (!$this->usePasswordRecovery() || !get('reset') || !get('email')) {
-            return;
-        }
+        // if (!$this->usePasswordRecovery() || !get('reset') || !get('email')) {
+        //     return;
+        // }
 
-        return Redirect::to(Cms::entryUrl('resetPassword') . '?' . http_build_query(get()));
+        // return Redirect::to(Cms::entryUrl('resetPassword') . '?' . http_build_query(get()));
     }
 
     /**

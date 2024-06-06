@@ -6,13 +6,22 @@ title = "Login"
 rememberMe = "always"
 twoFactorAuth = 1
 recoverPassword = 1
+
+[resetPassword]
+==
+<?php
+function onStart() {
+$this['reset'] = Input::get('reset');
+$this['email'] = Input::get('email');
+}
+?>
 ==
 {% if user != null %}
 {% do redirect('/account') %}
 {% endif %}
-
 <div class="login-wrapper">
-    <form data-request="onLogin" data-request-success="onSuccess()">
+    {% if reset == '' and email == '' %}
+    <form data-request="onLogin" data-request-success="onSuccess()" data-request-validate>
         <div class="login-form">
             <div style=" display: flex; justify-content: center;">
                 <div class="login-img">
@@ -34,8 +43,9 @@ recoverPassword = 1
 
             </div>
             <div class="remember">
-                <label for=""><input type="checkbox" name="" id="">Запам'ятати мене</label>
-                <a href="">Забули пароль?</a>
+                <label for="remember"><input type="checkbox" name="" id="">Запам'ятати мене</label>
+                <button data-request="onRecoverPassword" data-request-flash="success"
+                    data-request-message="Відновлення...">Забули пароль?</button>
             </div>
 
             <button class="login-button" type="submit">Вхід</button>
@@ -43,6 +53,49 @@ recoverPassword = 1
         </div>
 
     </form>
+    {% endif %}
+
+
+    {% if reset != '' and email != '' %}
+    <form method="post" data-request="onResetPassword" data-request-flash data-request-success="onSuccess()">
+        <!-- <input type="hidden" name="redirect" value="true" /> -->
+        <input type="hidden" name="token" value="{{reset}}" />
+
+        <div class="text-center pb-3">
+            <h1 class="h2 mb-3">Recover password</h1>
+            <h2 class="h5 fw-normal">Enter your email address</h2>
+        </div>
+
+        <div class="form-floating my-3">
+            <input name="email" type="email" class="form-control" id="inputRecoverEmail" placeholder="name@example.com"
+                value="{{email}}" />
+            <label for="inputRecoverEmail">Email address</label>
+        </div>
+
+        <div class="text-center pb-3">
+            <h2 class="h5 fw-normal">Enter your a new password</h2>
+        </div>
+
+        <div class="form-floating my-3">
+            <input name="password" type="password" class="form-control" id="inputPasswordEmail" placeholder="" />
+            <label for="inputPasswordEmail">Password</label>
+        </div>
+
+        <div class="text-center pb-3">
+            <h2 class="h5 fw-normal">Confirmation password</h2>
+        </div>
+
+        <div class="form-floating my-3">
+            <input name="password_confirmation" type="password" class="form-control" id="inputconfirm_passwordEmail"
+                placeholder="" />
+            <label for="inputconfirm_passwordEmail">confirm password</label>
+        </div>
+
+        <button class="btn btn-primary btn-lg w-100 py-2" data-attach-loading type="submit">
+            Recover
+        </button>
+    </form>
+    {% endif %}
 </div>
 
 {% put scripts %}

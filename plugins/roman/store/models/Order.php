@@ -27,8 +27,7 @@ class Order extends Model
     ];
 
     public $casts = [
-        'cart' => 'array'
-        
+        // 'cart' => 'array'
     ];
 
     public $belongsTo = [
